@@ -1,7 +1,8 @@
 .container{
   width: auto;
   background-color: lightslategray;
-  height: 200px;
+  height: auto;
+  min-height: 6em;
 }
 
 nav a {
@@ -15,10 +16,6 @@ nav a {
   color: #334953;
 }
 
-.tile{
-  background-color: #9279FE;
-}
-
 .tile:hover{
   color: #039be5;
   background-color: #cfd8dc;
@@ -29,29 +26,45 @@ nav a {
 }
 
 .tile{
-  width: 7em;
-  height: 3em;
+  width: auto;
+  min-width: 6%;
+  height: auto;
+  min-height: 3em;
   text-align: center;
-  margin-left: 7em;
-  margin-top: 70px;
+  margin-left: 4%;
+  margin-top: 1%;
+  background-color: #9279FE;
+  display: flex;
 }
 
 .logIn{
-  width: 3em;
-  height: 3em;
+  width: auto;
+  min-width: 6%;
+  height: auto;
+  min-height: 3em;
   background-color: #039be5;
   border-radius: 10px;
-  margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 15%;
   text-align: center;
+  display: flex;
+  margin-top: 1%;
 }
 
 .singIn{
-  width: 3em;
-  height: 3em;
+  width: auto;
+  min-width: 6%;
+  height: auto;
+  min-height: 3em;
   background-color: #039be5;
   border-radius: 10px;
-  margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 1%;
   text-align: center;
+  display: flex;
+  margin-top: 1%;
+}
+.logo{
+  margin-top: 1em;
+}
+p{
+  margin: auto;
 }
