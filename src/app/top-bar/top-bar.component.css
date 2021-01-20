@@ -1,22 +1,57 @@
+.container{
+  width: auto;
+  background-color: lightslategray;
+  height: 200px;
+}
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
-  margin-top: 10px;
-  background-color: #9279FE;
   border-radius: 4px;
   float: left;
-  display: grid;
 }
-nav a:visited, a:link {
+
+.tile :visited, :link {
   color: #334953;
 }
-nav a:hover {
+
+.tile{
+  background-color: #9279FE;
+}
+
+.tile:hover{
   color: #039be5;
   background-color: #cfd8dc;
 }
-nav a.active {
+
+.tile.active{
   color: #039be5;
 }
-.logo{
-  float: left;
+
+.tile{
+  width: 7em;
+  height: 3em;
+  text-align: center;
+  margin-left: 7em;
+  margin-top: 70px;
+}
+
+.logIn{
+  width: 3em;
+  height: 3em;
+  background-color: #039be5;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.singIn{
+  width: 3em;
+  height: 3em;
+  background-color: #039be5;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+  text-align: center;
 }

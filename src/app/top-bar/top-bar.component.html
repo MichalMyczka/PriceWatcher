@@ -1,12 +1,20 @@
 <div class="container">
-<!--   ROUTER LINK DO GŁÓWNEJ-->
-  <a routerLink="/currencies">
-    <img src="./assets/logo.png" alt="logo" class="logo">
-  </a>
+
   <nav>
-    <a routerLink="/currencies">currencies</a>
-    <a routerLink="/cryptocurrencies">cryptocurrencies</a>
-    <a routerLink="/cryptocurrencies">stock</a>
-    <a routerLink="/cryptocurrencies">metals</a>
+    <!--   ROUTER LINK DO GŁÓWNEJ-->
+    <a routerLink="/landingPage">
+      <img src="./assets/logo.png" alt="logo" class="logo">
+    </a>
+
+    <a routerLink="/currencies" class="tile">currencies</a>
+    <a routerLink="/cryptocurrencies" class="tile">cryptocurrencies</a>
+    <a routerLink="/stock" class="tile">stock</a>
+    <a routerLink="/metals" class="tile">metals</a>
+    <a routerLink="/landingPage" class="tile">news</a>
+
+    <a routerLink="/cryptocurrencies" class="logIn">Log In</a>
+    <a routerLink="/cryptocurrencies" class="singIn">Sign In</a>
+
   </nav>
+
 </div>
