@@ -1,8 +1,11 @@
 .container{
   width: auto;
+  max-width: 100%;
   background-color: lightslategray;
   height: auto;
   min-height: 6em;
+  display: block;
+  overflow: auto;
 }
 
 nav a {
@@ -31,7 +34,7 @@ nav a {
   height: auto;
   min-height: 3em;
   text-align: center;
-  margin-left: 4%;
+  margin-left: 3%;
   margin-top: 1%;
   background-color: #9279FE;
   display: flex;
@@ -50,7 +53,7 @@ nav a {
   margin-top: 1%;
 }
 
-.singIn{
+.signUp{
   width: auto;
   min-width: 6%;
   height: auto;
@@ -62,9 +65,21 @@ nav a {
   display: flex;
   margin-top: 1%;
 }
+
+.singInButton{
+  height: auto;
+  width: 150px;
+}
+
+.logInButton{
+  height: auto;
+  width: 150px;
+}
+
 .logo{
   margin-top: 1em;
 }
+
 p{
   margin: auto;
 }

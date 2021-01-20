@@ -9,6 +9,8 @@ import { CryptocurrenciesComponent } from './cryptocurrencies/cryptocurrencies.c
 import { MetalsComponent } from './metals/metals.component';
 import { StockComponent } from './stock/stock.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     CryptocurrenciesComponent,
     MetalsComponent,
     StockComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LoginPageComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
