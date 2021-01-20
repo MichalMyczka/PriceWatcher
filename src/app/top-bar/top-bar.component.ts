@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  topBarContent: ['currencies', 'cryptocurrencies', 'metals', 'stock'];
 
   constructor() { }
 
