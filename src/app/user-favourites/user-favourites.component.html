@@ -1,0 +1,34 @@
+<div class="searchBar">
+  <label for="currencySearch">Search For Currencies:</label><br>
+  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Currency Here"><br><br>
+</div>
+
+<div class="favouritesContainer">
+  <div class="currencyTile">
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> USD/PLN 3.70</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 3%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+
+  <div class="currencyTile">
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> AAPL/PLN 132</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 14%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+</div>
