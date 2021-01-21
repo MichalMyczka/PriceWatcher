@@ -22,3 +22,8 @@ p:hover{
 .loginForm{
   margin-top: 10%;
 }
+
+a{
+  text-decoration: none;
+  color: #9279FE;
+}

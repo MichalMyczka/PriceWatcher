@@ -1,0 +1,22 @@
+.newsContainer{
+  background-color: #9279FE;
+  width: 60%;
+  height: auto;
+  min-height: 35em;
+  margin: 2% auto auto;
+  border-radius: 10px;
+}
+
+h1{
+  margin-top: 2%;
+  text-align: center;
+}
+
+.newsTile{
+  background-color: #039be5;
+  width: 70%;
+  height: auto;
+  min-height: 7em;
+  text-align: center;
+  margin: auto;
+}
