@@ -2,9 +2,10 @@
   background-color: #9279FE;
   width: 60%;
   height: auto;
-  min-height: 35em;
+  min-height: 20em;
   margin: 2% auto auto;
-  border-radius: 10px;
+  border-radius: 4px;
+  position: relative;
 }
 
 h1{
@@ -13,10 +14,12 @@ h1{
 }
 
 .newsTile{
+  position: absolute;
   background-color: #039be5;
-  width: 70%;
+  width: 100%;
+  border-radius: 4px;
   height: auto;
-  min-height: 7em;
+  min-height: auto;
   text-align: center;
   margin: auto;
 }
