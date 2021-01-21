@@ -1,1 +1,49 @@
-<p>stock works!</p>
+<div class="searchBar">
+  <label for="currencySearch">Search For Stocks:</label><br>
+  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Stock Here"><br><br>
+</div>
+
+<div class="currencyList">
+  <label for="currencyBase">Choose Your Base Currency:</label><br>
+  <select id="currencyBase">
+    <option>USD</option>
+    <option>PLN</option>
+    <option>GBP</option>
+    <option>CHF</option>
+    <option>EUR</option>
+  </select>
+</div>
+
+<div class="currenciesContainer">
+
+  <div class="currencyTile">
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> AAPL/PLN 132</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 14%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+
+  <div class="currencyTile">
+    <!--    <i class="fas fa-star"></i>-->
+    <!--    <button type="button" class="favButton">Add To Favourites</button>-->
+
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> TSLA/PLN 850</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 20%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+</div>

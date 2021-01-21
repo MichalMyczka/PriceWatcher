@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./metals.component.css']
 })
 export class MetalsComponent implements OnInit {
+  isWhite: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.changeStarColor();
   }
 
+  changeStarColor(): void{
+    this.isWhite = false;
+  }
 }

@@ -7,6 +7,7 @@ import { StockComponent } from './stock/stock.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'currencies', component: CurrenciesComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'landingPage', component: LandingPageComponent},
   {path: '', redirectTo: '/landingPage', pathMatch: 'full'},
   {path: 'login', component: LoginPageComponent},
-  {path: 'signUp', component: SignUpPageComponent}
+  {path: 'signUp', component: SignUpPageComponent},
+  {path: 'profile', component: UserProfileComponent}
 ];
 
 @NgModule({

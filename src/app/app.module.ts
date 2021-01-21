@@ -11,6 +11,7 @@ import { StockComponent } from './stock/stock.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
     StockComponent,
     LandingPageComponent,
     LoginPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

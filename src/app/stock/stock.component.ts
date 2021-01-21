@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
+  isWhite: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.changeStarColor();
   }
 
+  changeStarColor(): void{
+    this.isWhite = false;
+  }
 }

@@ -1,0 +1,19 @@
+.userInfo{
+  width: 50em;
+  height: 30em;
+  background-color: chartreuse;
+  margin: 3% auto auto;
+}
+img{
+  width: 200px;
+  height: 300px;
+  float: left;
+  margin: 4% 4% 4% 4%;
+}
+
+.inputs{
+  float: right;
+  margin-right: 30%;
+  margin-top: 4%;
+  text-align: center;
+}

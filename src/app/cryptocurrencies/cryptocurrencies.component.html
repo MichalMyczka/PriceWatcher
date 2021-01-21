@@ -1,1 +1,49 @@
-<p>cryptocurrencies works!</p>
+<div class="searchBar">
+  <label for="currencySearch">Search For Cryptocurrencies:</label><br>
+  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Cryptocurrency"><br><br>
+</div>
+
+<div class="currencyList">
+  <label for="currencyBase">Choose Your Base Currency:</label><br>
+  <select id="currencyBase">
+    <option>USD</option>
+    <option>PLN</option>
+    <option>GBP</option>
+    <option>CHF</option>
+    <option>EUR</option>
+  </select>
+</div>
+
+<div class="currenciesContainer">
+
+  <div class="currencyTile">
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> ETH/PLN 1250</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 2%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+
+  <div class="currencyTile">
+    <!--    <i class="fas fa-star"></i>-->
+    <!--    <button type="button" class="favButton">Add To Favourites</button>-->
+
+    <div *ngIf="isWhite">
+      <i class="fas fa-star" style="color: white"></i>
+    </div>
+
+    <div *ngIf="!isWhite">
+      <i class="fas fa-star" style="color: yellow"></i>
+    </div>
+
+    <h3 class="oneToOneExchange"> BTC/PLN 32.600</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 7%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+</div>

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cryptocurrencies.component.css']
 })
 export class CryptocurrenciesComponent implements OnInit {
+  isWhite: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.changeStarColor();
   }
 
+  changeStarColor(): void{
+    this.isWhite = false;
+  }
 }
