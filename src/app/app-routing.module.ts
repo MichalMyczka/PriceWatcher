@@ -8,6 +8,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserFavouritesComponent } from './user-favourites/user-favourites.component';
 
 const routes: Routes = [
   {path: 'currencies', component: CurrenciesComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: '', redirectTo: '/landingPage', pathMatch: 'full'},
   {path: 'login', component: LoginPageComponent},
   {path: 'signUp', component: SignUpPageComponent},
-  {path: 'profile', component: UserProfileComponent}
+  {path: 'profile', component: UserProfileComponent},
+  {path: 'userFav', component: UserFavouritesComponent}
 ];
 
 @NgModule({

@@ -1,9 +1,10 @@
 <div class="searchBar">
-  <label for="currencySearch">Search For Currencies:</label><br>
-  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Currency Here"><br><br>
+  <label for="currencySearch">Search For Favourites:</label><br>
+  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Search Here"><br><br>
 </div>
 
 <div class="favouritesContainer">
+
   <div class="currencyTile">
     <div *ngIf="isWhite">
       <i class="fas fa-star" style="color: white"></i>
@@ -31,4 +32,5 @@
     <h3 class="weeklyChange">Change Over 7 Days: 14%</h3>
     <i class="fas fa-arrow-down"></i>
   </div>
+
 </div>

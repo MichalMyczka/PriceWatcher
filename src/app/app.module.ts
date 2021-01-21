@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserFavouritesComponent } from './user-favourites/user-favourites.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     LandingPageComponent,
     LoginPageComponent,
     SignUpPageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserFavouritesComponent
   ],
   imports: [
     BrowserModule,
