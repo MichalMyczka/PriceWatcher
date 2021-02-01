@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MetalsService} from '../metals.service';
+import {Metals} from '../models/metals.model';
 
 @Component({
   selector: 'app-metals',
@@ -6,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./metals.component.css']
 })
 export class MetalsComponent implements OnInit {
-  isWhite: boolean;
 
-  constructor() { }
+  public metalsList: Metals;
+
+  constructor(private metals: MetalsService) { }
 
   ngOnInit(): void {
-    this.changeStarColor();
+    this.getMetals();
   }
 
-  changeStarColor(): void{
-    this.isWhite = false;
+  getMetals(): void{
+    this.metals.getMetals()
+      .subscribe(data => this.metalsList = data);
   }
 }

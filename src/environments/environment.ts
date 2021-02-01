@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   bloombergApiUrl: 'https://bloomberg-market-and-financial-news.p.rapidapi.com',
-  bloombergRapidApiKey: 'rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8'
+  bloombergRapidApiKey: 'rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8',
+  metalsApiUrl: 'https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL'
 };
 
 /*

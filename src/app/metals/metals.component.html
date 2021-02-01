@@ -17,32 +17,25 @@
 <div class="currenciesContainer">
 
   <div class="currencyTile">
-    <div *ngIf="isWhite">
-      <i class="fas fa-star" style="color: white"></i>
-    </div>
-
-    <div *ngIf="!isWhite">
-      <i class="fas fa-star" style="color: yellow"></i>
-    </div>
-
-    <h3 class="oneToOneExchange"> XAG/PLN 25.85/ozt</h3>
+    <h3 class="oneToOneExchange"> XAG/{{metalsList.baseCurrency}} {{metalsList.rates.XAG}}/{{metalsList.unit}}</h3>
     <h3 class="weeklyChange">Change Over 7 Days: 7%</h3>
     <i class="fas fa-arrow-down"></i>
   </div>
 
   <div class="currencyTile">
-    <!--    <i class="fas fa-star"></i>-->
-    <!--    <button type="button" class="favButton">Add To Favourites</button>-->
+    <h3 class="oneToOneExchange"> XAU/{{metalsList.baseCurrency}} {{metalsList.rates.XAU}}/{{metalsList.unit}}</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
 
-    <div *ngIf="isWhite">
-      <i class="fas fa-star" style="color: white"></i>
-    </div>
+  <div class="currencyTile">
+    <h3 class="oneToOneExchange"> PL/{{metalsList.baseCurrency}} {{metalsList.rates.PL}}/{{metalsList.unit}}</h3>
+    <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
+    <i class="fas fa-arrow-down"></i>
+  </div>
 
-    <div *ngIf="!isWhite">
-      <i class="fas fa-star" style="color: yellow"></i>
-    </div>
-
-    <h3 class="oneToOneExchange"> XAU/PLN 1868/ozt</h3>
+  <div class="currencyTile">
+    <h3 class="oneToOneExchange"> PA/{{metalsList.baseCurrency}} {{metalsList.rates.PA}}/{{metalsList.unit}}</h3>
     <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
     <i class="fas fa-arrow-down"></i>
   </div>
