@@ -13,6 +13,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFavouritesComponent } from './user-favourites/user-favourites.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserFavouritesComponent } from './user-favourites/user-favourites.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

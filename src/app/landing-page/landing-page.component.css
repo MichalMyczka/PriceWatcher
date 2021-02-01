@@ -2,12 +2,12 @@
   background-color: #9279FE;
   width: 60%;
   height: auto;
-  min-height: 20em;
+  min-height: 30em;
   margin: 2% auto auto;
   border-radius: 4px;
   position: relative;
   display: grid;
-  grid-row-gap: 10%;
+  grid-row-gap: 1%;
 }
 
 h1{
