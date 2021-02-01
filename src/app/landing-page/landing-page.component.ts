@@ -15,10 +15,11 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     this.news.getNews()
       .subscribe(data => this.newsList = data); //wyjaśnić
+    this.setNewsData(this.newsList);
   }
 
-  // setNewsData(newsList): void{
-  //   let title = this.newsList.modules.0.stories.0.title;
-  // }
-
+  setNewsData(newsList): any[]{
+    const title = this.newsList;
+    return title;
+  }
 }

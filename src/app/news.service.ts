@@ -8,7 +8,7 @@ import {Inews} from './news';
 })
 export class NewsService {
 
-  private url = 'https://bloomberg-market-and-financial-news.p.rapidapi.com/news/list?rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8';
+  private url = 'https://bloomberg-market-and-financial-news.p.rapidapi.com/news/list?rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8&id=technology';
 
   constructor(private http: HttpClient) { }
 
