@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  bloombergApiUrl: 'https://bloomberg-market-and-financial-news.p.rapidapi.com',
+  bloombergRapidApiKey: 'rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8'
 };
 
 /*

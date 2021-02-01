@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
+import {News} from '../models/news.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,18 +9,17 @@ import { NewsService } from '../news.service';
 })
 export class LandingPageComponent implements OnInit {
 
-  public newsList = [];
+  public newsList: News;
 
   constructor(private news: NewsService) { }
 
   ngOnInit(): void {
-    this.news.getNews()
-      .subscribe(data => this.newsList = data); //wyjaśnić
-    this.setNewsData(this.newsList);
+    this.getNews();
   }
 
-  setNewsData(newsList): any[]{
-    const title = this.newsList;
-    return title;
+  getNews(): void{
+    this.news.getNews()
+      .subscribe(data => this.newsList = data);
   }
+
 }
