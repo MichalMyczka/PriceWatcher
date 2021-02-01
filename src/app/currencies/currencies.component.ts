@@ -15,7 +15,7 @@ export class CurrenciesComponent implements OnInit {
   }
 
   changeStarColor(): void{
-    this.isWhite = false;
+    this.isWhite = true;
   }
 
 }

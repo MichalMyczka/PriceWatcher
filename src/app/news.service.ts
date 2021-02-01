@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpResponse, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Inews} from './news';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  private baseUrl = 'https://api.exchangeratesapi.io/latest';
+  private url = 'https://bloomberg-market-and-financial-news.p.rapidapi.com/news/list?rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8';
+
   constructor(private http: HttpClient) { }
 
-  getNews(): Observable<any> {
-    return this.http.get();
+  getNews(): Observable<Inews[]>{
+    return this.http.get<Inews[]>(this.url);
   }
+
 }
