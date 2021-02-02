@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CurrencyService} from '../currency.service';
+import {Currency} from '../models/currency.model';
 
 @Component({
   selector: 'app-currencies',
@@ -6,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./currencies.component.css']
 })
 export class CurrenciesComponent implements OnInit {
-  isWhite: boolean;
 
-  constructor() { }
+  public currencyList: Currency;
+
+  constructor(private currency: CurrencyService) { }
 
   ngOnInit(): void {
-    this.changeStarColor();
+    this.getCurrencies();
   }
 
-  changeStarColor(): void{
-    this.isWhite = true;
+  getCurrencies(): void{
+    this.currency.getCurrencies()
+      .subscribe(data => this.currencyList = data);
   }
 
 }

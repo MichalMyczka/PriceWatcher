@@ -9,11 +9,12 @@ import {Metals} from './models/metals.model';
 })
 export class MetalsService {
 
-  public base: 'PLN'; // TODO base changing
+  public metalsBase: string; // TODO base changing
 
   constructor(private http: HttpClient) { }
 
   getMetals(): Observable<Metals>{
-    return this.http.get<Metals>(`${environment.metalsApiUrl}/PLN?${environment.bloombergRapidApiKey}`);
+    this.metalsBase = 'PLN';
+    return this.http.get<Metals>(`${environment.metalsApiUrl}/${this.metalsBase}?${environment.bloombergRapidApiKey}`);
   }
 }
