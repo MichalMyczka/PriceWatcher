@@ -25,7 +25,8 @@ export class CurrencyService {
         for (let rate of Object.keys(result.rates)){
           let rateObject: Rate = {
             base: rate,
-            rate: result.rates[rate].rate
+            rate: result.rates[rate].rate,
+            name: result.rates[rate].currency_name
           };
           currency.rates.push(rateObject);
         }
