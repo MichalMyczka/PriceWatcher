@@ -7,7 +7,12 @@ export const environment = {
   bloombergApiUrl: 'https://bloomberg-market-and-financial-news.p.rapidapi.com',
   bloombergRapidApiKey: 'rapidapi-key=e945b61393msh34694ffb92a9decp1dc310jsn5cb8a620cfa8',
   metalsApiUrl: 'https://live-metal-prices.p.rapidapi.com/v1/latest/XAU,XAG,PA,PL',
-  currencyApiUrl: 'https://currency-converter5.p.rapidapi.com/currency/convert'
+  currencyApiUrl: 'https://currency-converter5.p.rapidapi.com/currency/convert',
+  cryptocurrencyApiUrl: 'https://api.coingecko.com/api/v3/simple/price?ids=',
+  cryptocurrenciesNameUrl: 'bitcoin%2Cmonero%2Cethereum%2Ctether%2Cpolkadot%2Ccardano%2Clitecoin%2Cchainlink%2Cxrp%2Cstellar%2Cdash',
+  stocksApiUrl: 'https://financialmodelingprep.com/api/v3/quote',
+  stocksApiKey: 'apikey=c140ff64588f7be5bbd63f620f801d67'
+  // https://financialmodelingprep.com/api/v3/quote/AAPL,FB,GOOG?apikey=c140ff64588f7be5bbd63f620f801d67
 };
 
 /*

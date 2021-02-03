@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CryptocurrenciesService} from '../services/cryptocurrencies.service';
+import {Cryptocurrency} from '../models/cryptocurrency.model';
 
 @Component({
   selector: 'app-cryptocurrencies',
@@ -6,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cryptocurrencies.component.css']
 })
 export class CryptocurrenciesComponent implements OnInit {
-  isWhite: boolean;
 
-  constructor() { }
+  public cryptoCurrencyList: Cryptocurrency;
+
+  constructor(private cryptocurrency: CryptocurrenciesService) { }
 
   ngOnInit(): void {
-    this.changeStarColor();
+    this.getCryptoCurrencies();
+    console.log(this.cryptoCurrencyList);
   }
 
-  changeStarColor(): void{
-    this.isWhite = false;
+  getCryptoCurrencies(): void{
+    this.cryptocurrency.getCrypto()
+      .subscribe(data => this.cryptoCurrencyList = data);
   }
+
 }
