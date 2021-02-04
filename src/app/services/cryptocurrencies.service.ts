@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Cryptocurrency} from '../models/cryptocurrency.model';
-import {Metals} from '../models/metals.model';
 import {map} from 'rxjs/operators';
-import {MetalsRates} from '../models/metals-rates.model';
 import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
 import {CryptocurrencyRates} from '../models/cryptocurrency-rates.model';
 
