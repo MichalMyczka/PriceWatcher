@@ -18,7 +18,10 @@
   <ng-container *ngIf="metalsList">
     <div *ngFor="let rate of metalsList.rates">
       <div class="currencyTile">
-        <h3 class="oneToOneExchange"> {{rate.symbol}}/{{metalsList.baseCurrency}} {{rate.rate}} {{metalsList.unit}}</h3>
+        <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>
+        <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>
+        <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>
+        <h3 class="oneToOneExchange"> Unit: {{metalsList.unit}} </h3>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>

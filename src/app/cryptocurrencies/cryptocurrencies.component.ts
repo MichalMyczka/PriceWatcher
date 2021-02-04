@@ -10,17 +10,20 @@ import {Cryptocurrency} from '../models/cryptocurrency.model';
 export class CryptocurrenciesComponent implements OnInit {
 
   public cryptoCurrencyList: Cryptocurrency;
+  public cryptoCurrencyBase: string;
+  public rates: any[];
 
   constructor(private cryptocurrency: CryptocurrenciesService) { }
 
   ngOnInit(): void {
     this.getCryptoCurrencies();
-    console.log(this.cryptoCurrencyList);
   }
 
   getCryptoCurrencies(): void{
-    this.cryptocurrency.getCrypto()
-      .subscribe(data => this.cryptoCurrencyList = data);
+    this.cryptocurrency.getCrypto(this.cryptoCurrencyBase)
+      .subscribe(data => {
+        this.cryptoCurrencyList = data;
+      });
   }
 
 }
