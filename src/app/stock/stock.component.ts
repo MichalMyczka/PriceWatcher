@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {StocksService} from '../services/stocks.service';
-import {Stocks} from '../models/stocks.model';
 import {StocksList} from '../models/stockslist.model';
 
 @Component({
@@ -11,6 +10,8 @@ import {StocksList} from '../models/stockslist.model';
 export class StockComponent implements OnInit {
 
   public stocksList: StocksList;
+  public stockBase: string;
+  public rates: any[];
 
   constructor(private stocks: StocksService) { }
 
@@ -19,7 +20,9 @@ export class StockComponent implements OnInit {
   }
 
   getStocksToList(): void{
-    this.stocks.getStocks()
-      .subscribe(data => this.stocksList = data);
+    this.stocks.getStocks(this.stockBase)
+      .subscribe(data => {
+        this.stocksList = data;
+      });
   }
 }

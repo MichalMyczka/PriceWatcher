@@ -4,23 +4,15 @@
 </div>
 
 <div class="currenciesContainer">
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> {{stocksList[0]['symbol']}}/USD {{stocksList[0]['price']}}</h3>
-    <h3 class="weeklyChange">Percentage change: {{stocksList[0]['changesPercentage']}}%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> {{stocksList[1]['symbol']}}/USD {{stocksList[1]['price']}}</h3>
-    <h3 class="weeklyChange">Percentage change: {{stocksList[1]['changesPercentage']}}%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> {{stocksList[2]['symbol']}}/USD {{stocksList[2]['price']}}</h3>
-    <h3 class="weeklyChange">Percentage change: {{stocksList[2]['changesPercentage']}}%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
+  <ng-container *ngIf="stocksList">
+    <div *ngFor="let stock of stocksList.stock">
+      <div class="currencyTile">
+        <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>
+        <h3 class="oneToOneExchange"> Base: USD </h3>
+        <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>
+        <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>
+        <i class="fas fa-arrow-down"></i>
+      </div>
+    </div>
+  </ng-container>
 </div>
