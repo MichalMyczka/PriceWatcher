@@ -5,38 +5,22 @@
 
 <div class="currencyList">
   <label for="currencyBase">Choose Your Base Currency:</label><br>
-  <select id="currencyBase">
-    <option>USD</option>
-    <option>PLN</option>
-    <option>GBP</option>
-    <option>CHF</option>
-    <option>EUR</option>
+  <select id="currencyBase" [(ngModel)]="currencyBase" (change)="getMetals()">
+    <option value='USD'>USD</option>
+    <option value='PLN'>PLN</option>
+    <option value='GBP'>GBP</option>
+    <option value='CHF'>CHF</option>
+    <option value='EUR'>EUR</option>
   </select>
 </div>
 
 <div class="currenciesContainer">
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> XAG/{{metalsList.baseCurrency}} {{metalsList.rates.XAG}}/{{metalsList.unit}}</h3>
-    <h3 class="weeklyChange">Change Over 7 Days: 7%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> XAU/{{metalsList.baseCurrency}} {{metalsList.rates.XAU}}/{{metalsList.unit}}</h3>
-    <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> PL/{{metalsList.baseCurrency}} {{metalsList.rates.PL}}/{{metalsList.unit}}</h3>
-    <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
-
-  <div class="currencyTile">
-    <h3 class="oneToOneExchange"> PA/{{metalsList.baseCurrency}} {{metalsList.rates.PA}}/{{metalsList.unit}}</h3>
-    <h3 class="weeklyChange">Change Over 7 Days: 10%</h3>
-    <i class="fas fa-arrow-down"></i>
-  </div>
+  <ng-container *ngIf="metalsList">
+    <div *ngFor="let rate of metalsList.rates">
+      <div class="currencyTile">
+        <h3 class="oneToOneExchange"> {{rate.symbol}}/{{metalsList.baseCurrency}} {{rate.rate}} {{metalsList.unit}}</h3>
+        <i class="fas fa-arrow-down"></i>
+      </div>
+    </div>
+  </ng-container>
 </div>

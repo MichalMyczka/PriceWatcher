@@ -18,9 +18,7 @@
   <ng-container *ngIf="currencyList">
     <div *ngFor="let rate of currencyList.rates">
       <div class="currencyTile">
-        <h3 class="oneToOneExchange"> Base Currency Code: {{currencyList.base_currency_code}} </h3>
-        <h3 class="oneToOneExchange"> Current Currency: {{rate.name}} </h3>
-        <h3 class="oneToOneExchange"> Current Price 1/1: {{rate.rate}} </h3>
+        <h3 class="oneToOneExchange">{{currencyList.base_currency_code}}/{{rate.base}} {{rate.rate}}</h3>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>

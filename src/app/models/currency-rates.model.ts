@@ -1,5 +1,5 @@
-export class CurrencyRates {
-  currency_name: string;
+export class CurrencyRate {
+  base: string;
   rate: number;
-  rate_for_amount: number;
+  name: string;
 }

@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Currency} from '../models/currency.model';
 import {map} from 'rxjs/operators';
-import {Rate} from '../models/rate.model';
+import {CurrencyRate} from '../models/currency-rates.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +16,20 @@ export class CurrencyService {
   getCurrencies(currencyBase = 'USD'): Observable<Currency>{
     return this.http.get<Currency>(`${environment.currencyApiUrl}?${environment.bloombergRapidApiKey}&from=${currencyBase}`).pipe(
       map(result => {
-        let currency: Currency = {
+        const currency: Currency = {
           amount: result.amount,
           base_currency_code: result.base_currency_code,
           base_currency_name: result.base_currency_name,
           rates: []
         };
-        for (let rate of Object.keys(result.rates)){
-          let rateObject: Rate = {
+        for (const rate of Object.keys(result.rates)){
+          const rateObject: CurrencyRate = {
             base: rate,
             rate: result.rates[rate].rate,
             name: result.rates[rate].currency_name
           };
           currency.rates.push(rateObject);
         }
-        console.log(currency);
         return currency;
       })
     );

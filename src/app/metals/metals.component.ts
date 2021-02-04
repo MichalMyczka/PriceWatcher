@@ -10,6 +10,8 @@ import {Metals} from '../models/metals.model';
 export class MetalsComponent implements OnInit {
 
   public metalsList: Metals;
+  public rates: any[];
+  public currencyBase: string;
 
   constructor(private metals: MetalsService) { }
 
@@ -18,7 +20,9 @@ export class MetalsComponent implements OnInit {
   }
 
   getMetals(): void{
-    this.metals.getMetals()
-      .subscribe(data => this.metalsList = data);
+    this.metals.getMetals(this.currencyBase)
+      .subscribe(data => {
+        this.metalsList = data;
+      });
   }
 }
