@@ -2,7 +2,8 @@
   <label for="currencySearch">Search For Cryptocurrencies:</label><br>
   <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Cryptocurrency"><br><br>
 </div>
-
+<ng-container *ngIf="cryptoCurrencyList">
+<app-search-bar [label]="'Cryptocurrencies'" [list]="cryptoCurrencyList.rates"></app-search-bar>
 <div class="currencyList">
   <label for="currencyBase">Choose Your Base Currency:</label><br>
   <select id="currencyBase" [(ngModel)]="cryptoCurrencyBase" (change)="getCryptoCurrencies()">
@@ -15,7 +16,7 @@
 </div>
 
 <div class="currenciesContainer">
-  <ng-container *ngIf="cryptoCurrencyList">
+
     <div *ngFor="let crypto of cryptoCurrencyList.rates">
       <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
@@ -26,6 +27,5 @@
         </div>
       </div>
     </div>
-  </ng-container>
-
 </div>
+</ng-container>

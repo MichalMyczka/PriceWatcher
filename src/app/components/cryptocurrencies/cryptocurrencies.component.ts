@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CryptocurrenciesService} from '../services/cryptocurrencies.service';
-import {Cryptocurrency} from '../models/cryptocurrency.model';
+import {CryptocurrenciesService} from '../../services/cryptocurrencies.service';
+import {Cryptocurrency} from '../../models/cryptocurrency.model';
 
 @Component({
   selector: 'app-cryptocurrencies',

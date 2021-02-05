@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MetalsService} from '../services/metals.service';
-import {Metals} from '../models/metals.model';
+import {MetalsService} from '../../services/metals.service';
+import {Metals} from '../../models/metals.model';
 
 @Component({
   selector: 'app-metals',
