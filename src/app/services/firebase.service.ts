@@ -4,10 +4,12 @@ import {AngularFireAuth} from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root'
 })
-
 export class FirebaseService {
+
   isLoggedIn = false;
+
   constructor(public firebaseAuth: AngularFireAuth) { }
+
   async signIn(email: string, password: string){
     await this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
@@ -19,9 +21,10 @@ export class FirebaseService {
   async signUp(email: string, password: string){
     await this.firebaseAuth.createUserWithEmailAndPassword(email, password);
   }
+
   logout(){
     this.firebaseAuth.signOut();
-    localStorage.removeItem('user');
     this.isLoggedIn = false;
+    localStorage.removeItem('user');
   }
 }

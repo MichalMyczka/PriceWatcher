@@ -10,7 +10,7 @@
       <label for="password">Password</label><br><br>
       <input name="password" id="password" type="password" placeholder="Type Your Password Here" #password><br><br>
 
-      <button (click)="onSignin(email.value, password.value)">Log In</button><br>
+      <button type="submit" form="form1" value="Log In" (click)="onSignin(email.value, password.value)">Log In</button><br>
     </form>
   </div>
 </div>

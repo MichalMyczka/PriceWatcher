@@ -14,9 +14,10 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFavouritesComponent } from './user-favourites/user-favourites.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule} from '@angular/fire';
+import { environment } from '../environments/environment';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,9 @@ import {environment} from '../environments/environment';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig)
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
