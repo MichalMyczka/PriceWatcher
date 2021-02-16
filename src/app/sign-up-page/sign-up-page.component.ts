@@ -16,10 +16,12 @@ export class SignUpPageComponent implements OnInit {
 
   async onSignup(email: string, password: string, nickname: string){
     await this.firebaseService.signUp(email, password);
-    await firebase.database().ref('users/' + nickname).set({
+    const uid = firebase.auth().currentUser.uid;
+    await firebase.database().ref('users/' + uid).set({
       email: email,
-      name: null,
-      surname: null,
+      nickname: nickname,
+      name: 'xyz',
+      surname: 'abc',
     });
   }
 
