@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class TopBarComponent implements OnInit {
   topBarContent: ['currencies', 'cryptocurrencies', 'metals', 'stock'];
 
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.firebaseService.logout();
   }
 
 }

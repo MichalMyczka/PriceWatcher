@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up-page.component.css']
 })
 export class SignUpPageComponent implements OnInit {
-
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+  }
+
+  async onSignup(email: string, password: string){
+    await this.firebaseService.signUp(email, password);
   }
 
 }

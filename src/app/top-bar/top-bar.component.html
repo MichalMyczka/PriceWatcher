@@ -11,8 +11,11 @@
     <a routerLink="/metals" class="tile"><p>metals</p></a>
     <a routerLink="/landingPage" class="tile"><p>news</p></a>
 
-    <a routerLink="/login" class="tile"><p>Log In</p></a>
-    <a routerLink="/signUp" class="tile"><p>Sign Up</p></a>
+    <a *ngIf="!firebaseService.isLoggedIn" routerLink="/login" class="tile"><p>Log In</p></a>
+    <a *ngIf="!firebaseService.isLoggedIn" routerLink="/signUp" class="tile"><p>Sign Up</p></a>
+
+    <a *ngIf="firebaseService.isLoggedIn" routerLink="/profile" class="tile"><p>Profile</p></a>
+    <a *ngIf="firebaseService.isLoggedIn" (click)="logout()" class="tile" routerLink="/landingPage"><p>Logout</p></a>
 
   </nav>
 

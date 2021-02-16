@@ -12,4 +12,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getUserData(): void{
+    console.log(localStorage.getItem('user'));
+  }
 }

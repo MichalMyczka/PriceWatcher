@@ -13,14 +13,8 @@ import {Stocks} from '../models/stocks.model';
 })
 export class StocksService {
 
-  // public stocksBase: string;
 
   constructor(private http: HttpClient) { }
-
-  // getStocks(): Observable<StocksList>{
-  //   this.stocksBase = 'AAPL,FB,GOOG,TSLA,MSFT,AMZN,BABA,TSM,V,JNJ';
-  //   return this.http.get<StocksList>(`${environment.stocksApiUrl}/${this.stocksBase}?${environment.stocksApiKey}`);
-  // }
 
   getStocks(stocksBase = 'AAPL,FB,GOOG,TSLA,MSFT,AMZN,BABA,TSM,V,JNJ'): Observable<StocksList>{
     return this.http.get<StocksList>(`${environment.stocksApiUrl}/${stocksBase}?${environment.stocksApiKey}`).pipe(
@@ -28,6 +22,7 @@ export class StocksService {
         const stock: StocksList = {
           stock: []
         };
+        // @ts-ignore
         for (const rate of result){
           const stockObject: Stocks = {
             symbol: rate.symbol,
