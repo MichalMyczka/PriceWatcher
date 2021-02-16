@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
+import {FirebaseDBService} from '../services/firebase-db.service';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -7,13 +9,18 @@ import {FirebaseService} from '../services/firebase.service';
   styleUrls: ['./sign-up-page.component.css']
 })
 export class SignUpPageComponent implements OnInit {
-  constructor(public firebaseService: FirebaseService) { }
+  constructor(public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
   }
 
-  async onSignup(email: string, password: string){
+  async onSignup(email: string, password: string, nickname: string){
     await this.firebaseService.signUp(email, password);
+    await firebase.database().ref('users/' + nickname).set({
+      email: email,
+      name: null,
+      surname: null,
+    });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {Router, RouterModule} from '@angular/router';
+import {FirebaseDBService} from '../services/firebase-db.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,7 +10,7 @@ import {Router, RouterModule} from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   isSignedIn = false;
-  constructor(public firebaseService: FirebaseService, public router: Router) { }
+  constructor(public firebaseService: FirebaseService, public router: Router, public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('user') !== null) {
