@@ -16,6 +16,7 @@ export class SignUpPageComponent implements OnInit {
 
   async onSignup(email: string, password: string, nickname: string){
     await this.firebaseService.signUp(email, password);
+    alert('account created'); // TODO better info about account
     const uid = firebase.auth().currentUser.uid;
     await firebase.database().ref('users/' + uid).set({
       email: email,

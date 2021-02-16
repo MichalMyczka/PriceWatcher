@@ -11,6 +11,7 @@ export class UserProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getUserData();
   }
 
   getUserData() {
@@ -19,12 +20,15 @@ export class UserProfileComponent implements OnInit {
     return firebase.database().ref('/users/' + currUID).once('value').then(
       (snapshot) => {
         const fetchedData = snapshot.val();
-        return fetchedData;
-        // console.log(fetchedData.email);
-        // const fetchedEmail = fetchedData.email;
-        // const fetchedNickname = fetchedData.nickname;
-        // const fetchedName = fetchedData.name;
-        // const fetchedSurname = fetchedData.surname;
+
+        const name = document.getElementById('userName');
+        name.setAttribute('placeholder', fetchedData.name);
+        const surname = document.getElementById('userSurname');
+        surname.setAttribute('placeholder', fetchedData.surname);
+        const email = document.getElementById('userEmail');
+        email.setAttribute('placeholder', fetchedData.email);
+        const nickname = document.getElementById('userNickname');
+        nickname.setAttribute('placeholder', fetchedData.nickname);
       })
   .catch((error) => {
       console.log('Fetching Error', error);
@@ -32,11 +36,4 @@ export class UserProfileComponent implements OnInit {
   }
 }
 
-// firebase.database().ref('users').child(uid).once('value')
-//   .then((data) => {
-//     let fetchedData = data.val()
-//     console.log('Fetched Data', fetchedData)
-//   })
-//   .catch((error) => {
-//     console.log('Fetching Error', error)
-//   })
+
