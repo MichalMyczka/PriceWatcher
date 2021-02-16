@@ -7,8 +7,10 @@ import {Observable} from 'rxjs';
 })
 export class FirebaseDBService {
   public users: Observable<any>[];
-
-  constructor(public firebaseDB: AngularFireDatabase) {
-
+  constructor(afDB: AngularFireDatabase) {
+    const itemsRef: AngularFireList<any> = afDB.list('users');
+    itemsRef.valueChanges().subscribe(
+      x => {this.users = x; }
+    );
   }
 }

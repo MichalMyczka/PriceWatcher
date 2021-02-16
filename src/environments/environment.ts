@@ -15,6 +15,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: 'AIzaSyBwnRtV0wuXCydaai6JR1UOLv69YZ5zWiY',
     authDomain: 'pricewatcher-a4e48.firebaseapp.com',
+    databaseURL: 'https://pricewatcher-a4e48-default-rtdb.europe-west1.firebasedatabase.app',
     projectId: 'pricewatcher-a4e48',
     storageBucket: 'pricewatcher-a4e48.appspot.com',
     messagingSenderId: '977415166502',

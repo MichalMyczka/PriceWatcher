@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule} from '@angular/fire';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FirebaseService } from './services/firebase.service';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig)
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule
     ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

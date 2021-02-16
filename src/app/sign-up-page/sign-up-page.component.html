@@ -9,10 +9,10 @@
       <input name="email" id="email" type="text" placeholder="Type Your Email Here"  #emailSignup><br><br>
       <label for="password">Password</label><br><br>
       <input name="password" id="password" type="password" placeholder="Type Your Password Here" #passwordSignup><br><br>
-<!--      <label for="nickname">Nickname</label><br><br>-->
-<!--      <input name="nickname" id="nickname" type="text" placeholder="Type Your Nickname"><br><br>-->
+      <label for="nickname">Nickname</label><br><br>
+      <input name="nickname" id="nickname" type="text" placeholder="Type Your Nickname" #nicknameSignup><br><br>
 
-      <button type="submit" form="form2" value="Sign Up" (click)="onSignup(emailSignup.value, passwordSignup.value)">Sign Up</button><br>
+      <button type="submit" form="form2" value="Sign Up" (click)="onSignup(emailSignup.value, passwordSignup.value, nicknameSignup.value)">Sign Up</button><br>
     </form>
   </div>
 </div>
