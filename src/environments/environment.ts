@@ -11,8 +11,15 @@ export const environment = {
   cryptocurrencyApiUrl: 'https://api.coingecko.com/api/v3/simple/price?ids=',
   cryptocurrenciesNameUrl: 'bitcoin%2Cmonero%2Cethereum%2Ctether%2Cpolkadot%2Ccardano%2Clitecoin%2Cchainlink%2Cxrp%2Cstellar%2Cdash',
   stocksApiUrl: 'https://financialmodelingprep.com/api/v3/quote',
-  stocksApiKey: 'apikey=c140ff64588f7be5bbd63f620f801d67'
-  // https://financialmodelingprep.com/api/v3/quote/AAPL,FB,GOOG?apikey=c140ff64588f7be5bbd63f620f801d67
+  stocksApiKey: 'apikey=c140ff64588f7be5bbd63f620f801d67',
+  firebaseConfig: {
+    apiKey: 'AIzaSyBwnRtV0wuXCydaai6JR1UOLv69YZ5zWiY',
+    authDomain: 'pricewatcher-a4e48.firebaseapp.com',
+    projectId: 'pricewatcher-a4e48',
+    storageBucket: 'pricewatcher-a4e48.appspot.com',
+    messagingSenderId: '977415166502',
+    appId: '1:977415166502:web:917f794a789d415aaa24e7'
+  }
 };
 
 /*

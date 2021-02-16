@@ -6,11 +6,11 @@
   <div class="loginInputs">
     <form id="form1">
       <label for="email">Email</label><br><br>
-      <input name="email" id="email" type="text" placeholder="Type Your Email Here"><br><br>
+      <input name="email" id="email" type="text" placeholder="Type Your Email Here" #email><br><br>
       <label for="password">Password</label><br><br>
-      <input name="password" id="password" type="password" placeholder="Type Your Password Here"><br><br>
+      <input name="password" id="password" type="password" placeholder="Type Your Password Here" #password><br><br>
 
-      <button type="submit" form="form1" value="Log In">Log In</button><br>
+      <button (click)="onSignin(email.value, password.value)">Log In</button><br>
     </form>
   </div>
 </div>

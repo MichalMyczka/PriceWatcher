@@ -28,6 +28,7 @@ export class StocksService {
         const stock: StocksList = {
           stock: []
         };
+        // @ts-ignore
         for (const rate of result){
           const stockObject: Stocks = {
             symbol: rate.symbol,
