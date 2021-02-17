@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
+import {environment} from '../../environments/environment';
+import {tokenName} from '@angular/compiler';
 
 @Component({
   selector: 'app-user-profile',
@@ -54,6 +56,35 @@ export class UserProfileComponent implements OnInit {
       surname: surname
     });
   }
+
+  uploadNewImage(imageInput: any){
+    console.log(imageInput);
+    const uid = firebase.auth().currentUser.uid;
+    let uploader = document.getElementById('uploader');
+    let file = imageInput.files[0];
+    console.log(file);
+
+    let storageRef = firebase.storage().ref('img/' + file.name);
+    let task = storageRef.put(file);
+
+
+    task.on('state_changed', function progress(snapshot) {
+      let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      uploader.setAttribute('value', String(percentage));
+
+    }, function error(err) {
+
+
+    }, function complete() {
+      storageRef.getDownloadURL()
+        .then((url) => {
+          firebase.database().ref('/users/' + uid).update({
+            imageUrl: url
+          });
+        });
+    });
+  }
+
 }
 
 
