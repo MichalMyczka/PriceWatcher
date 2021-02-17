@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
 import firebase from 'firebase';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -21,8 +22,7 @@ export class SignUpPageComponent implements OnInit {
     await firebase.database().ref('users/' + uid).set({
       email: email,
       nickname: nickname,
-      name: 'xyz',
-      surname: 'abc',
+      imageUrl: environment.defaultAvatar,
     });
   }
 

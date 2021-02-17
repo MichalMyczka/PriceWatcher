@@ -20,7 +20,8 @@ export const environment = {
     storageBucket: 'pricewatcher-a4e48.appspot.com',
     messagingSenderId: '977415166502',
     appId: '1:977415166502:web:917f794a789d415aaa24e7'
-  }
+  },
+  defaultAvatar: 'https://firebasestorage.googleapis.com/v0/b/pricewatcher-a4e48.appspot.com/o/default_avatar.jpeg?alt=media&token=5f6d8d3c-e711-480f-b473-bc4f754745f4',
 };
 
 /*

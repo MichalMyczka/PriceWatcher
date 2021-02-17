@@ -1,19 +1,22 @@
 
 <div class="userInfo">
-  <img src="./assets/profilepic.jpeg" alt="profilePic">
+  <img src="" id="userImage" alt="profilePic">
 
   <div class="inputs">
+    <label for="userEmail">Your Email:</label><br><br>
+    <p id="userEmail"></p><br><br>
+
     <label for="userName">Your First Name:</label><br><br>
-    <input id="userName" placeholder="name"><br><br>
+    <input id="userName" placeholder="name" #name><br><br>
 
     <label for="userSurname">Your Surname:</label><br><br>
-    <input id="userSurname" placeholder="Type Your Surname Here"><br><br>
+    <input id="userSurname" placeholder="Type Your Surname Here" #surname><br><br>
 
-    <label for="userEmail">Your Email:</label><br><br>
-    <input id="userEmail" placeholder="Type Your Email Here"><br><br>
+
 
     <label for="userNickname">Your Nickname:</label><br><br>
-    <input id="userNickname" placeholder="Type Your Nickname Here"><br><br>
+    <input id="userNickname" placeholder="Type Your Nickname Here" #nickname><br><br>
   </div>
+  <button type="submit" value="Update" (click)="UpdateData(name.value, surname.value, nickname.value)">Update data</button>
 
 </div>

@@ -17,21 +17,41 @@ export class UserProfileComponent implements OnInit {
   getUserData() {
     console.log(localStorage.getItem('user'));
     const currUID = firebase.auth().currentUser.uid;
+
     return firebase.database().ref('/users/' + currUID).once('value').then(
       (snapshot) => {
         const fetchedData = snapshot.val();
 
-        const name = document.getElementById('userName');
-        name.setAttribute('placeholder', fetchedData.name);
-        const surname = document.getElementById('userSurname');
-        surname.setAttribute('placeholder', fetchedData.surname);
-        const email = document.getElementById('userEmail');
-        email.setAttribute('placeholder', fetchedData.email);
+        if (fetchedData.name !== undefined){
+          const name = document.getElementById('userName');
+          name.setAttribute('value', fetchedData.name);
+        }
+
+        if (fetchedData.surname !== undefined){
+          const surname = document.getElementById('userSurname');
+          surname.setAttribute('value', fetchedData.surname);
+        }
+
+        document.getElementById('userEmail').innerText = fetchedData.email;
+
+        let photo = document.getElementById('userImage');
+        console.log(fetchedData.imageUrl);
+        photo.setAttribute('src', fetchedData.imageUrl);
+
         const nickname = document.getElementById('userNickname');
-        nickname.setAttribute('placeholder', fetchedData.nickname);
+        nickname.setAttribute('value', fetchedData.nickname);
+
       })
-  .catch((error) => {
-      console.log('Fetching Error', error);
+      .catch((error) => {
+        console.log('Fetching Error', error);
+      });
+  }
+  async UpdateData(name: string, surname: string, nickname: string) {
+    const currUID = firebase.auth().currentUser.uid;
+    await firebase.database().ref('/users/' + currUID).update({
+      name: name,
+      nickname: nickname,
+      surname: surname
     });
   }
 }
