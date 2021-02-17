@@ -17,7 +17,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserData() {
-    console.log(localStorage.getItem('user'));
     const currUID = firebase.auth().currentUser.uid;
 
     return firebase.database().ref('/users/' + currUID).once('value').then(
@@ -37,7 +36,6 @@ export class UserProfileComponent implements OnInit {
         document.getElementById('userEmail').innerText = fetchedData.email;
 
         let photo = document.getElementById('userImage');
-        console.log(fetchedData.imageUrl);
         photo.setAttribute('src', fetchedData.imageUrl);
 
         const nickname = document.getElementById('userNickname');
@@ -62,7 +60,6 @@ export class UserProfileComponent implements OnInit {
     const uid = firebase.auth().currentUser.uid;
     let uploader = document.getElementById('uploader');
     let file = imageInput.files[0];
-    console.log(file);
 
     let storageRef = firebase.storage().ref('img/' + file.name);
     let task = storageRef.put(file);

@@ -32,7 +32,6 @@ export class StocksService {
           };
           stock.stock.push(stockObject);
         }
-        console.log(stock);
         return stock;
       })
     );
