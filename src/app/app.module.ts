@@ -14,7 +14,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFavouritesComponent } from './user-favourites/user-favourites.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularFireModule} from '@angular/fire';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
@@ -40,7 +40,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
         HttpClientModule,
         FormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireDatabaseModule
+        AngularFireDatabaseModule,
+        ReactiveFormsModule
     ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

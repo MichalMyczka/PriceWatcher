@@ -1,11 +1,11 @@
 <div class="searchBar">
   <label for="currencySearch">Search For Currencies:</label><br>
-  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Currency Here"><br><br>
+  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Currency Here" [formControl]="currencyInput"><br><br>
 </div>
 
 <div class="currencyList">
   <label for="currencyBase">Choose Your Base Currency:</label><br>
-    <select id="currencyBase" [(ngModel)]="currencyBase" (change)="getCurrencies()">
+    <select id="currencyBase" [(ngModel)]="currencyBase" (change)="getCurrencies(currencyBase)">
       <option value='USD'>USD</option>
       <option value='PLN'>PLN</option>
       <option value='GBP'>GBP</option>
@@ -16,7 +16,7 @@
 
 <div class="currenciesContainer" >
   <ng-container *ngIf="currencyList">
-    <div *ngFor="let rate of currencyList.rates">
+    <div *ngFor="let rate of searchRates">
       <div class="currencyTile">
         <h3 class="oneToOneExchange"> Base Currency: {{currencyList.base_currency_code}}</h3>
         <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
