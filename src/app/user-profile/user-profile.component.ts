@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
-import {environment} from '../../environments/environment';
-import {tokenName} from '@angular/compiler';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,13 +9,13 @@ import {tokenName} from '@angular/compiler';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.getUserData();
   }
 
-  getUserData() {
+  async getUserData(): Promise<any>{
     const currUID = firebase.auth().currentUser.uid;
 
     return firebase.database().ref('/users/' + currUID).once('value').then(
@@ -35,53 +34,58 @@ export class UserProfileComponent implements OnInit {
 
         document.getElementById('userEmail').innerText = fetchedData.email;
 
-        let photo = document.getElementById('userImage');
+        const photo = document.getElementById('userImage');
         photo.setAttribute('src', fetchedData.imageUrl);
 
         const nickname = document.getElementById('userNickname');
         nickname.setAttribute('value', fetchedData.nickname);
-
       })
       .catch((error) => {
         console.log('Fetching Error', error);
       });
   }
-  async UpdateData(name: string, surname: string, nickname: string) {
+  async UpdateData(name: string, surname: string, nickname: string): Promise<any> {
     const currUID = firebase.auth().currentUser.uid;
     await firebase.database().ref('/users/' + currUID).update({
-      name: name,
-      nickname: nickname,
-      surname: surname
+      name,
+      nickname,
+      surname
     });
+    this.reloadComponent();
   }
 
-  uploadNewImage(imageInput: any){
-    console.log(imageInput);
+  async uploadNewImage(imageInput: any): Promise<any>{
     const uid = firebase.auth().currentUser.uid;
-    let uploader = document.getElementById('uploader');
-    let file = imageInput.files[0];
+    const uploader = document.getElementById('uploader');
+    const file = imageInput.files[0];
 
-    let storageRef = firebase.storage().ref('img/' + file.name);
-    let task = storageRef.put(file);
+    const storageRef = firebase.storage().ref('img/' + file.name);
+    const task = storageRef.put(file);
 
 
-    task.on('state_changed', function progress(snapshot) {
-      let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    task.on('state_changed', function progress(snapshot): void {
+      const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       uploader.setAttribute('value', String(percentage));
 
-    }, function error(err) {
+    }, function error(err): void {
+        alert(err.message);
 
-
-    }, function complete() {
+    }, async function complete(): Promise<any> {
       storageRef.getDownloadURL()
-        .then((url) => {
+        .then((imageUrl) => {
           firebase.database().ref('/users/' + uid).update({
-            imageUrl: url
+            imageUrl
           });
         });
     });
   }
 
+  reloadComponent(): void {
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
 }
 
 
