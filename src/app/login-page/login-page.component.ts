@@ -14,11 +14,11 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSignin(email: string, password: string){
+  async onSignin(email: string, password: string): Promise<boolean> {
     try{
       await this.firebaseService.signIn(email, password);
       if (this.firebaseService.isLoggedIn) {
-        await this.router.navigateByUrl('/profile');
+        return await this.router.navigateByUrl('/profile');
       }
     }
     catch (error){

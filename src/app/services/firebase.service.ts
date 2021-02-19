@@ -10,19 +10,22 @@ export class FirebaseService {
 
   constructor(public firebaseAuth: AngularFireAuth) { }
 
-  async signIn(email: string, password: string){
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
+  signIn(email: string, password: string): void {
+    // TODO https://firebase.google.com/docs/auth/web/auth-state-persistence#:~:text=You%20can%20specify%20how%20the,or%20cleared%20on%20page%20reload.
+    this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
       });
   }
 
-  async signUp(email: string, password: string){
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password);
+  signUp(email: string, password: string): void{
+    this.firebaseAuth.createUserWithEmailAndPassword(email, password).then(() => {
+      console.log('sign up');
+    });
   }
 
-  logout(){
+  logout(): void{
     this.firebaseAuth.signOut();
     this.isLoggedIn = false;
     localStorage.removeItem('user');

@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  userName: string;
+  imagePath: string;
 
   constructor(public router: Router) { }
 
@@ -18,13 +20,13 @@ export class UserProfileComponent implements OnInit {
   async getUserData(): Promise<any>{
     const currUID = firebase.auth().currentUser.uid;
 
+    // TODO change with usage of TWO WAY DATA BINDING
     return firebase.database().ref('/users/' + currUID).once('value').then(
       (snapshot) => {
         const fetchedData = snapshot.val();
 
         if (fetchedData.name !== undefined){
-          const name = document.getElementById('userName');
-          name.setAttribute('value', fetchedData.name);
+          this.userName = fetchedData.name;
         }
 
         if (fetchedData.surname !== undefined){
@@ -34,8 +36,7 @@ export class UserProfileComponent implements OnInit {
 
         document.getElementById('userEmail').innerText = fetchedData.email;
 
-        const photo = document.getElementById('userImage');
-        photo.setAttribute('src', fetchedData.imageUrl);
+        this.imagePath = fetchedData.imageUrl;
 
         const nickname = document.getElementById('userNickname');
         nickname.setAttribute('value', fetchedData.nickname);
@@ -57,7 +58,7 @@ export class UserProfileComponent implements OnInit {
   async uploadNewImage(imageInput: any): Promise<any>{
     const uid = firebase.auth().currentUser.uid;
     const uploader = document.getElementById('uploader');
-    const file = imageInput.files[0];
+    const file = imageInput.files.shift();
 
     const storageRef = firebase.storage().ref('img/' + file.name);
     const task = storageRef.put(file);
@@ -70,12 +71,12 @@ export class UserProfileComponent implements OnInit {
     }, function error(err): void {
         alert(err.message);
 
-    }, async function complete(): Promise<any> {
+    }, function complete(): void {
       storageRef.getDownloadURL()
         .then((imageUrl) => {
           firebase.database().ref('/users/' + uid).update({
             imageUrl
-          });
+          }).catch(error => console.error(error));
         });
     });
   }
@@ -84,7 +85,7 @@ export class UserProfileComponent implements OnInit {
     const currentUrl = this.router.url;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([currentUrl]);
+    this.router.navigate([currentUrl]).catch(error => console.error(error));
   }
 }
 

@@ -1,7 +1,7 @@
 <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
 
 <div class="userInfo">
-  <img src="" id="userImage" alt="profilePic">
+  <img [src]="imagePath" id="userImage" alt="profilePic">
   <progress id="uploader" value="0" max="100">0%</progress>
   <input type="file" id="fileButton" value="upload" (change)="uploadNewImage(imageInput)" #imageInput>
 
@@ -9,8 +9,10 @@
     <label for="userEmail">Your Email:</label><br><br>
     <p id="userEmail"></p><br><br>
 
-    <label for="userName">Your First Name:</label><br><br>
-    <input id="userName" placeholder="name" #name><br><br>
+    <label>
+      Your First Name:
+      <input [(ngModel)]="userName" placeholder="name" #name>
+    </label><br><br>
 
     <label for="userSurname">Your Surname:</label><br><br>
     <input id="userSurname" placeholder="Type Your Surname Here" #surname><br><br>
