@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
+import {delay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class FirebaseService {
     // TODO https://firebase.google.com/docs/auth/web/auth-state-persistence#:~:text=You%20can%20specify%20how%20the,or%20cleared%20on%20page%20reload.
     this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
+        this.isLoggedIn = 'true';
         localStorage.setItem('loggedIn', String(true));
         localStorage.setItem('user', JSON.stringify(res.user));
         this.router.navigateByUrl('/profile');

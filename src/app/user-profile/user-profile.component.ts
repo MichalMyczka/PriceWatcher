@@ -22,7 +22,6 @@ export class UserProfileComponent implements OnInit {
 
   async getUserData(): Promise<any>{
     const currUID = firebase.auth().currentUser.uid;
-
     return firebase.database().ref('/users/' + currUID).once('value').then(
       (snapshot) => {
         const fetchedData = snapshot.val();
