@@ -8,6 +8,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  userName: string;
+  userSurname: string;
+  userNickname: string;
+  userEmail: string;
+  imagePath: string;
 
   constructor(public router: Router) { }
 
@@ -23,22 +28,18 @@ export class UserProfileComponent implements OnInit {
         const fetchedData = snapshot.val();
 
         if (fetchedData.name !== undefined){
-          const name = document.getElementById('userName');
-          name.setAttribute('value', fetchedData.name);
+          this.userName = fetchedData.name;
         }
 
         if (fetchedData.surname !== undefined){
-          const surname = document.getElementById('userSurname');
-          surname.setAttribute('value', fetchedData.surname);
+          this.userSurname = fetchedData.surname;
         }
 
-        document.getElementById('userEmail').innerText = fetchedData.email;
+        this.userEmail = fetchedData.email;
 
-        const photo = document.getElementById('userImage');
-        photo.setAttribute('src', fetchedData.imageUrl);
+        this.imagePath = fetchedData.imageUrl;
 
-        const nickname = document.getElementById('userNickname');
-        nickname.setAttribute('value', fetchedData.nickname);
+        this.userNickname = fetchedData.nickname;
       })
       .catch((error) => {
         console.log('Fetching Error', error);

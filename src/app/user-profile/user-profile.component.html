@@ -1,22 +1,27 @@
 <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
 
 <div class="userInfo">
-  <img src="" id="userImage" alt="profilePic">
+  <img src="{{imagePath}}" id="userImage" alt="profilePic">
   <progress id="uploader" value="0" max="100">0%</progress>
   <input type="file" id="fileButton" value="upload" (change)="uploadNewImage(imageInput)" #imageInput>
 
   <div class="inputs">
-    <label for="userEmail">Your Email:</label><br><br>
-    <p id="userEmail"></p><br><br>
+    <label>Your Email:</label><br><br>
+      <p>{{userEmail}}</p><br><br>
 
-    <label for="userName">Your First Name:</label><br><br>
-    <input id="userName" placeholder="name" #name><br><br>
+    <label>Your First Name:<br><br>
+      <input [(ngModel)]="userName" placeholder="Type Your Name Here" #name><br><br>
+    </label>
 
-    <label for="userSurname">Your Surname:</label><br><br>
-    <input id="userSurname" placeholder="Type Your Surname Here" #surname><br><br>
 
-    <label for="userNickname">Your Nickname:</label><br><br>
-    <input id="userNickname" placeholder="Type Your Nickname Here" #nickname><br><br>
+    <label>Your Surname:<br><br>
+      <input [(ngModel)]="userSurname" placeholder="Type Your Surname Here" #surname><br><br>
+    </label>
+
+
+    <label>Your Nickname:<br><br>
+      <input [(ngModel)]="userNickname" placeholder="Type Your Nickname Here" #nickname><br><br>
+    </label>
   </div>
   <button type="submit" value="Update" (click)="UpdateData(name.value, surname.value, nickname.value)">Update data</button>
 

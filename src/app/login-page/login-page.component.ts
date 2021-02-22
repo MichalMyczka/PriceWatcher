@@ -17,9 +17,6 @@ export class LoginPageComponent implements OnInit {
   async onSignin(email: string, password: string){
     try{
       await this.firebaseService.signIn(email, password);
-      if (this.firebaseService.isLoggedIn) {
-        await this.router.navigateByUrl('/profile');
-      }
     }
     catch (error){
       alert(error.message);

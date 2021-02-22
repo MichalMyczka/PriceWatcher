@@ -19,6 +19,7 @@ import { AngularFireModule} from '@angular/fire';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
         FormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireDatabaseModule,
+        AngularFirestoreModule.enablePersistence(),
         ReactiveFormsModule
     ],
   providers: [FirebaseService],

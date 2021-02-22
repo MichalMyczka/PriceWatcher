@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class TopBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(){
+  logout(): void{
     this.firebaseService.logout();
+    location.reload();
   }
-
 }

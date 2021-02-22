@@ -2,7 +2,7 @@
 <h1> NEWS </h1>
 
 <div class="newsContainer">
-<!--  <div *ngIf="newsList.modules[0].stories.length>0">-->
+  <ng-container *ngIf="newsList">
     <div *ngFor="let module of newsList.modules">
       <div *ngFor="let story of module.stories">
             <div class="container">
@@ -17,5 +17,5 @@
             </div>
       </div>
     </div>
+  </ng-container>>
   </div>
-<!--</div>-->
