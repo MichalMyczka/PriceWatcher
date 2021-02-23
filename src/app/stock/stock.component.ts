@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {StocksService} from '../services/stocks.service';
 import {StocksList} from '../models/stockslist.model';
+import {FirebaseService} from '../services/firebase.service';
+import {FirebaseDBService} from '../services/firebase-db.service';
 
 @Component({
   selector: 'app-stock',
@@ -13,7 +15,7 @@ export class StockComponent implements OnInit {
   public stockBase: string;
   public rates: any[];
 
-  constructor(private stocks: StocksService) { }
+  constructor(private stocks: StocksService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     this.getStocksToList();

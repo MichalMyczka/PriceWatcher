@@ -7,6 +7,7 @@
   <ng-container *ngIf="stocksList">
     <div *ngFor="let stock of stocksList.stock">
       <div class="currencyTile">
+        <button (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</button>
         <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>
         <h3 class="oneToOneExchange"> Base: USD </h3>
         <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>

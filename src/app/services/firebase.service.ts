@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {delay} from 'rxjs/operators';
+import firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,14 @@ export class FirebaseService {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
     localStorage.setItem('loggedIn', String(false));
+  }
+
+  addToFav(baseCurrency, rate, currency) {
+    const currUID = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + currUID + '/favourites/').push({
+      currency: rate,
+      base: baseCurrency,
+      api: currency
+    });
   }
 }

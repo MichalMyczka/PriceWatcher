@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MetalsService} from '../services/metals.service';
 import {Metals} from '../models/metals.model';
+import {FirebaseService} from '../services/firebase.service';
+import {FirebaseDBService} from '../services/firebase-db.service';
 
 @Component({
   selector: 'app-metals',
@@ -13,7 +15,7 @@ export class MetalsComponent implements OnInit {
   public rates: any[];
   public currencyBase: string;
 
-  constructor(private metals: MetalsService) { }
+  constructor(private metals: MetalsService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     this.getMetals();

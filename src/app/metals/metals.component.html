@@ -18,6 +18,7 @@
   <ng-container *ngIf="metalsList">
     <div *ngFor="let rate of metalsList.rates">
       <div class="currencyTile">
+        <button (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>
         <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>
         <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>
         <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>

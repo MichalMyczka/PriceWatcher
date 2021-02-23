@@ -3,6 +3,9 @@ import {CurrencyService} from '../services/currency.service';
 import {Currency} from '../models/currency.model';
 import {FormControl} from '@angular/forms';
 import {CurrencyRate} from '../models/currency-rates.model';
+import firebase from 'firebase';
+import {FirebaseService} from '../services/firebase.service';
+import {FirebaseDBService} from '../services/firebase-db.service';
 
 @Component({
   selector: 'app-currencies',
@@ -17,7 +20,7 @@ export class CurrenciesComponent implements OnInit {
   public currencyInput = new FormControl('');
   public searchRates: CurrencyRate[] = [];
 
-  constructor(private currency: CurrencyService) { }
+  constructor(private currency: CurrencyService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     this.getCurrencies(this.currencyBase);
@@ -46,6 +49,5 @@ export class CurrenciesComponent implements OnInit {
         }
 
       });
+    }
   }
-
-}
