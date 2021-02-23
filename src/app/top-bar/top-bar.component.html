@@ -14,6 +14,7 @@
     <a *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null" routerLink="/login" class="tile"><p>Log In</p></a>
     <a *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null" routerLink="/signUp" class="tile"><p>Sign Up</p></a>
 
+    <a *ngIf="firebaseService.isLoggedIn === 'true'" routerLink="/userFav" class="tile"><p>Favourites</p></a>
     <a *ngIf="firebaseService.isLoggedIn === 'true'" routerLink="/profile" class="tile"><p>Profile</p></a>
     <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="logout()" class="tile" routerLink="/landingPage"><p>Logout</p></a>
 

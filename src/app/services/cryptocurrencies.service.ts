@@ -14,8 +14,8 @@ export class CryptocurrenciesService {
 
   constructor(private http: HttpClient) { }
 
-  getCrypto(cryptoCurrencyBase = 'USD'): Observable<Cryptocurrency>{
-    return this.http.get<Cryptocurrency>(`${environment.cryptocurrencyApiUrl}${environment.cryptocurrenciesNameUrl}&vs_currencies=${cryptoCurrencyBase}`).pipe(
+  getCrypto(cryptoCurrencyBase = 'USD', cryptoCurrencyNames = environment.cryptocurrenciesNameUrl): Observable<Cryptocurrency>{
+    return this.http.get<Cryptocurrency>(`${environment.cryptocurrencyApiUrl}${cryptoCurrencyNames}&vs_currencies=${cryptoCurrencyBase}`).pipe(
       map(result => {
         const crypto: Cryptocurrency = {
           rates: [],
