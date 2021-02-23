@@ -3,62 +3,58 @@
   <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Search Here"><br><br>
 </div>
 
-<div class="favouritesContainer">
 
-  <div class="currenciesContainer">
 
-    <ng-container *ngIf="cryptoCurrencyList">
-      <div *ngFor="let crypto of cryptoCurrencyList.rates">
-        <div *ngFor="let inner of crypto.rate">
-          <div class="currencyTile">
-            <button (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add To Fav</button>
-            <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol}} </h3>
-            <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
-            <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
-            <i class="fas fa-arrow-down"></i>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-    <ng-container *ngIf="currencyList">
-      <div *ngFor="let rate of currencyList.rates">
+<div class="currenciesContainer">
+  <ng-container *ngIf="cryptoCurrencyList">
+    <div *ngFor="let crypto of cryptoCurrencyList.rates">
+      <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
-          <button (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>
-          <h3 class="oneToOneExchange" > Base Currency: {{currencyList.base_currency_code}}</h3>
-          <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
-          <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>
+          <button (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add To Fav</button>
+          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol}} </h3>
+          <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
+          <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
           <i class="fas fa-arrow-down"></i>
         </div>
       </div>
-    </ng-container>
-
-    <ng-container *ngIf="metalsList">
-      <div *ngFor="let rate of metalsList.rates">
-        <div class="currencyTile">
-          <button (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>
-          <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>
-          <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>
-          <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>
-          <h3 class="oneToOneExchange"> Unit: {{metalsList.unit}} </h3>
-          <i class="fas fa-arrow-down"></i>
-        </div>
-      </div>
-    </ng-container>
-
-    <ng-container *ngIf="stocksList">
-      <div *ngFor="let stock of stocksList.stock">
-        <div class="currencyTile">
-          <button (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</button>
-          <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>
-          <h3 class="oneToOneExchange"> Base: USD </h3>
-          <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>
-          <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>
-          <i class="fas fa-arrow-down"></i>
-        </div>
-      </div>
-    </ng-container>
-
-  </div>
-
+    </div>
+  </ng-container>
 </div>
+
+<!--    <ng-container *ngIf="currencyList">-->
+<!--      <div *ngFor="let rate of currencyList.rates">-->
+<!--        <div class="currencyTile">-->
+<!--          <button (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>-->
+<!--          <h3 class="oneToOneExchange" > Base Currency: {{currencyList.base_currency_code}}</h3>-->
+<!--          <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>-->
+<!--          <i class="fas fa-arrow-down"></i>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+
+<!--    <ng-container *ngIf="metalsList">-->
+<!--      <div *ngFor="let rate of metalsList.rates">-->
+<!--        <div class="currencyTile">-->
+<!--          <button (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>-->
+<!--          <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>-->
+<!--          <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> Unit: {{metalsList.unit}} </h3>-->
+<!--          <i class="fas fa-arrow-down"></i>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+
+<!--    <ng-container *ngIf="stocksList">-->
+<!--      <div *ngFor="let stock of stocksList.stock">-->
+<!--        <div class="currencyTile">-->
+<!--          <button (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</button>-->
+<!--          <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> Base: USD </h3>-->
+<!--          <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>-->
+<!--          <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>-->
+<!--          <i class="fas fa-arrow-down"></i>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->

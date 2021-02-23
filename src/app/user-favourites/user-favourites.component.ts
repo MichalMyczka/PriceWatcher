@@ -25,6 +25,7 @@ export class UserFavouritesComponent implements OnInit {
   public currencyList: Currency;
   public metalsList: Metals;
   public stocksList: StocksList;
+  public cryptoList: Array<Cryptocurrency>;
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
@@ -53,37 +54,36 @@ export class UserFavouritesComponent implements OnInit {
 
   async loadData(){
     console.log(this.userFav);
-    for (let fav of this.userFav){
-      console.log(fav);
-      if ( fav.api === 'cryptocurrencies'){
-        // let x = this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency);
-        this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
+    let favourites = Object.keys(this.userFav);
+    for (let fav of favourites){
+    console.log(this.userFav[fav]);
+      if ( this.userFav[fav].api === 'cryptocurrencies'){
+        await this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.cryptoCurrencyList = data;
-            console.log(data);
+            // this.cryptoList.push(this.cryptoCurrencyList);
+            // console.log(this.cryptoList);
           });
       }
-      else if (fav.api === 'currencies'){
+      else if (this.userFav[fav].api === 'currencies'){
         this.currencyService.getCurrencies(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.currencyList = data;
-            console.log(data);
           });
       }
-      else if (fav.api === 'metal'){
+      else if (this.userFav[fav].api === 'metal'){
         this.metalsService.getMetals(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.metalsList = data;
-            console.log(data);
           });
       }
-      else if (fav.api === 'stock'){
+      else if (this.userFav[fav].api === 'stock'){
         this.stocksService.getStocks(this.userFav[fav].currency)
           .subscribe(data => {
             this.stocksList = data;
-            console.log(data);
           });
       }
     }
   }
 }
+
