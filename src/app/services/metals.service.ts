@@ -13,8 +13,8 @@ export class MetalsService {
 
   constructor(private http: HttpClient) { }
 
-  getMetals(currencyBase = 'USD'): Observable<Metals>{
-    return this.http.get<Metals>(`${environment.metalsApiUrl}/${currencyBase}?${environment.bloombergRapidApiKey}`).pipe(
+  getMetals(currencyBase = 'USD', searchedMetals = environment.allMetalsUrl): Observable<Metals>{
+    return this.http.get<Metals>(`${environment.metalsApiUrl}${searchedMetals}/${currencyBase}?${environment.bloombergRapidApiKey}`).pipe(
       map(result => {
         const metal: Metals = {
           baseCurrency: result.baseCurrency,

@@ -13,8 +13,8 @@ export class CurrencyService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrencies(currencyBase = 'USD'): Observable<Currency>{
-    return this.http.get<Currency>(`${environment.currencyApiUrl}?${environment.bloombergRapidApiKey}&from=${currencyBase}`).pipe(
+  getCurrencies(currencyBase = 'USD', currencyRate = ''): Observable<Currency>{
+    return this.http.get<Currency>(`${environment.currencyApiUrl}?${environment.bloombergRapidApiKey}&from=${currencyBase}&to=${currencyRate}`).pipe(
       map(result => {
         const currency: Currency = {
           amount: result.amount,

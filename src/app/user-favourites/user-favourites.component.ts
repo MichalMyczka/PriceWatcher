@@ -7,6 +7,9 @@ import {CurrencyService} from '../services/currency.service';
 import {MetalsService} from '../services/metals.service';
 import {StocksService} from '../services/stocks.service';
 import {Cryptocurrency} from '../models/cryptocurrency.model';
+import {Currency} from '../models/currency.model';
+import {Metals} from '../models/metals.model';
+import {StocksList} from '../models/stockslist.model';
 
 @Component({
   selector: 'app-user-favourites',
@@ -19,6 +22,9 @@ export class UserFavouritesComponent implements OnInit {
   public currency: string;
   public api: string;
   public cryptoCurrencyList: Cryptocurrency;
+  public currencyList: Currency;
+  public metalsList: Metals;
+  public stocksList: StocksList;
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
@@ -58,13 +64,25 @@ export class UserFavouritesComponent implements OnInit {
           });
       }
       else if (fav.api === 'currencies'){
-        console.log('bla');
+        this.currencyService.getCurrencies(this.userFav[fav].base, this.userFav[fav].currency)
+          .subscribe(data => {
+            this.currencyList = data;
+            console.log(data);
+          });
       }
       else if (fav.api === 'metal'){
-        console.log('bla');
+        this.metalsService.getMetals(this.userFav[fav].base, this.userFav[fav].currency)
+          .subscribe(data => {
+            this.metalsList = data;
+            console.log(data);
+          });
       }
       else if (fav.api === 'stock'){
-        console.log('bla');
+        this.stocksService.getStocks(this.userFav[fav].currency)
+          .subscribe(data => {
+            this.stocksList = data;
+            console.log(data);
+          });
       }
     }
   }
