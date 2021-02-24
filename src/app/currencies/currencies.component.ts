@@ -3,7 +3,6 @@ import {CurrencyService} from '../services/currency.service';
 import {Currency} from '../models/currency.model';
 import {FormControl} from '@angular/forms';
 import {CurrencyRate} from '../models/currency-rates.model';
-import firebase from 'firebase';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
 
