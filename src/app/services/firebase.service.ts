@@ -32,8 +32,10 @@ export class FirebaseService {
 
   logout(): void{
     this.firebaseAuth.signOut();
+    this.isLoggedIn = 'false';
     localStorage.removeItem('user');
     localStorage.setItem('loggedIn', String(false));
+    this.router.navigateByUrl('/landingPage');
   }
 
   addToFav(baseCurrency, rate, currency) {
