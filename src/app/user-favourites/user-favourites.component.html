@@ -15,6 +15,7 @@
             <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
             <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
             <i class="fas fa-arrow-down"></i>
+            <button (click)="this.removefromFaV(inner.rateSymbol, crypto.symbol)">Remove From Fav</button>
           </div>
         </div>
       </div>
@@ -30,6 +31,7 @@
         <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
         <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>
         <i class="fas fa-arrow-down"></i>
+        <button (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>
       </div>
     </div>
   </div>
@@ -45,6 +47,7 @@
         <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>
         <h3 class="oneToOneExchange"> Unit: {{metalsList.unit}} </h3>
         <i class="fas fa-arrow-down"></i>
+        <button (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>
       </div>
     </div>
   </div>
@@ -60,6 +63,7 @@
         <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>
         <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>
         <i class="fas fa-arrow-down"></i>
+        <button (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>
       </div>
     </div>
   </div>

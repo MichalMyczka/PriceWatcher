@@ -99,5 +99,13 @@ export class UserFavouritesComponent implements OnInit {
       }
     }
   }
+
+  removefromFaV(rateSymbol, symbol) {
+    console.log(this.userFav);
+    const favourites = Object.keys(this.userFav);
+    for (const fav of favourites) {
+      if (this.userFav[fav]. )
+    }
+  }
 }
 
