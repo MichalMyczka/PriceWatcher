@@ -10,6 +10,7 @@ import {Cryptocurrency} from '../models/cryptocurrency.model';
 import {Currency} from '../models/currency.model';
 import {Metals} from '../models/metals.model';
 import {StocksList} from '../models/stockslist.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-favourites',
@@ -37,7 +38,8 @@ export class UserFavouritesComponent implements OnInit {
               public firebaseDB: FirebaseDBService,
               private currencyService: CurrencyService,
               private metalsService: MetalsService,
-              private stocksService: StocksService
+              private stocksService: StocksService,
+              public router: Router
               ) { }
 
   ngOnInit(): void {
@@ -57,55 +59,55 @@ export class UserFavouritesComponent implements OnInit {
   }
 
   loadData(){
-    console.log(this.userFav);
     let favourites = Object.keys(this.userFav);
     for (let fav of favourites){
-    console.log(this.userFav[fav]);
       if ( this.userFav[fav].api === 'cryptocurrencies'){
         this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.cryptoCurrencyList = data;
-            console.log(this.cryptoCurrencyList);
             this.cryptoList.push(this.cryptoCurrencyList);
-            console.log(this.cryptoList);
           });
       }
       else if (this.userFav[fav].api === 'currencies'){
         this.currencyService.getCurrencies(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.currencyList = data;
-            console.log(this.currencyList);
             this.curList.push(this.currencyList);
-            console.log(this.curList);
           });
       }
       else if (this.userFav[fav].api === 'metal'){
         this.metalsService.getMetals(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.metalsList = data;
-            console.log(this.metalsList);
             this.metList.push(this.metalsList);
-            console.log(this.metList);
           });
       }
       else if (this.userFav[fav].api === 'stock'){
         this.stocksService.getStocks(this.userFav[fav].currency)
           .subscribe(data => {
             this.stocksList = data;
-            console.log(this.stocksList);
             this.stoList.push(this.stocksList);
-            console.log(this.stoList);
           });
       }
     }
   }
-
-  removefromFaV(rateSymbol, symbol) {
-    console.log(this.userFav);
-    const favourites = Object.keys(this.userFav);
-    for (const fav of favourites) {
-      if (this.userFav[fav]. )
+  removeFromFav(base, rateSymbol){
+    const currUID = firebase.auth().currentUser.uid;
+    let favourites = Object.keys(this.userFav);
+    for (let fav of favourites) {
+      if (this.userFav[fav].base === base && this.userFav[fav].currency === rateSymbol){
+        let deleteThis = fav;
+        firebase.database().ref('/users/' + currUID + '/favourites/' + deleteThis).remove();
+      }
     }
+    this.reloadComponent();
+  }
+
+  reloadComponent(): void {
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }
 
