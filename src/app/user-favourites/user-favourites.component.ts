@@ -21,11 +21,16 @@ export class UserFavouritesComponent implements OnInit {
   public base: string;
   public currency: string;
   public api: string;
+
   public cryptoCurrencyList: Cryptocurrency;
   public currencyList: Currency;
   public metalsList: Metals;
   public stocksList: StocksList;
-  public cryptoList: Array<Cryptocurrency>;
+
+  public cryptoList: Array<Cryptocurrency> = [];
+  public curList: Array<Currency> = [];
+  public metList: Array<Metals> = [];
+  public stoList: Array<StocksList> = [];
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
@@ -44,7 +49,6 @@ export class UserFavouritesComponent implements OnInit {
     return firebase.database().ref('/users/' + currUID + '/favourites/').once('value').then(
       (snapshot) => {
         this.userFav = snapshot.val();
-        console.log(this.userFav);
         this.loadData();
       })
       .catch((error) => {
@@ -52,35 +56,45 @@ export class UserFavouritesComponent implements OnInit {
       });
   }
 
-  async loadData(){
+  loadData(){
     console.log(this.userFav);
     let favourites = Object.keys(this.userFav);
     for (let fav of favourites){
     console.log(this.userFav[fav]);
       if ( this.userFav[fav].api === 'cryptocurrencies'){
-        await this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
+        this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.cryptoCurrencyList = data;
-            // this.cryptoList.push(this.cryptoCurrencyList);
-            // console.log(this.cryptoList);
+            console.log(this.cryptoCurrencyList);
+            this.cryptoList.push(this.cryptoCurrencyList);
+            console.log(this.cryptoList);
           });
       }
       else if (this.userFav[fav].api === 'currencies'){
         this.currencyService.getCurrencies(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.currencyList = data;
+            console.log(this.currencyList);
+            this.curList.push(this.currencyList);
+            console.log(this.curList);
           });
       }
       else if (this.userFav[fav].api === 'metal'){
         this.metalsService.getMetals(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
             this.metalsList = data;
+            console.log(this.metalsList);
+            this.metList.push(this.metalsList);
+            console.log(this.metList);
           });
       }
       else if (this.userFav[fav].api === 'stock'){
         this.stocksService.getStocks(this.userFav[fav].currency)
           .subscribe(data => {
             this.stocksList = data;
+            console.log(this.stocksList);
+            this.stoList.push(this.stocksList);
+            console.log(this.stoList);
           });
       }
     }

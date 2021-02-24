@@ -17,7 +17,6 @@ export class TopBarComponent implements OnInit {
 
   logout(): void{
     this.firebaseService.logout();
-    location.reload();
   }
 
   refresh(){
