@@ -13,7 +13,6 @@ export class CryptocurrenciesComponent implements OnInit {
 
   public cryptoCurrencyList: Cryptocurrency;
   public cryptoCurrencyBase: string;
-  public rates: any[];
 
   constructor(private cryptocurrency: CryptocurrenciesService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
@@ -28,4 +27,9 @@ export class CryptocurrenciesComponent implements OnInit {
       });
   }
 
+  getSearch($event: string): void {
+    this.cryptoCurrencyList.rates = this.cryptoCurrencyList.rates.filter(rate => {
+      return rate.symbol.toUpperCase().includes($event.toUpperCase());
+    });
+  }
 }
