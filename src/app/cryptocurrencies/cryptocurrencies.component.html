@@ -13,7 +13,7 @@
 
 <div class="currenciesContainer">
   <ng-container *ngIf="cryptoCurrencyList">
-    <div *ngFor="let crypto of cryptoCurrencyList.rates">
+    <div *ngFor="let crypto of cryptoList">
       <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
           <button (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add To Fav</button>

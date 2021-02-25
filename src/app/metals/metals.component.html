@@ -1,7 +1,4 @@
-<div class="searchBar">
-  <label for="currencySearch">Search For Metals:</label><br>
-  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Metal Here"><br><br>
-</div>
+<app-search [name]="'Metals'" (searchOutput)="getSearch($event)"></app-search>v>
 
 <div class="currencyList">
   <label for="currencyBase">Choose Your Base Currency:</label><br>
@@ -16,7 +13,7 @@
 
 <div class="currenciesContainer">
   <ng-container *ngIf="metalsList">
-    <div *ngFor="let rate of metalsList.rates">
+    <div *ngFor="let rate of metalsSearch">
       <div class="currencyTile">
         <button (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>
         <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>

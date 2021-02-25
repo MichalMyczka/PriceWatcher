@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CryptocurrenciesService} from '../services/cryptocurrencies.service';
 import {Cryptocurrency} from '../models/cryptocurrency.model';
 import {FirebaseService} from '../services/firebase.service';
@@ -15,7 +15,7 @@ export class CryptocurrenciesComponent implements OnInit {
 
   public cryptoCurrencyList: Cryptocurrency;
   public cryptoCurrencyBase: string;
-  public searchRates: CryptocurrencyBase[];
+  public cryptoList: CryptocurrencyBase[] = [];
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
@@ -29,13 +29,12 @@ export class CryptocurrenciesComponent implements OnInit {
     this.cryptocurrency.getCrypto(this.cryptoCurrencyBase)
       .subscribe(data => {
         this.cryptoCurrencyList = data;
-        this.searchRates = this.cryptoCurrencyList.rates;
-        console.log(this.cryptoCurrencyList.rates);
+        this.cryptoList = this.cryptoCurrencyList.rates;
       });
   }
 
   getSearch($event: string): void {
-    this.cryptoCurrencyList.rates = this.cryptoCurrencyList.rates.filter(rate => {
+    this.cryptoList = this.cryptoCurrencyList.rates.filter(rate => {
       return rate.symbol.toUpperCase().includes($event.toUpperCase());
     });
   }

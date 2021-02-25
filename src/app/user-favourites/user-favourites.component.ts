@@ -11,6 +11,7 @@ import {Currency} from '../models/currency.model';
 import {Metals} from '../models/metals.model';
 import {StocksList} from '../models/stockslist.model';
 import {Router} from '@angular/router';
+import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
 
 @Component({
   selector: 'app-user-favourites',
@@ -109,5 +110,11 @@ export class UserFavouritesComponent implements OnInit {
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
   }
+
+  // getSearch($event: string) {
+  //   this.searchRates = this.userFav.filter(fav => {
+  //     return fav.currency.includes( $event.toUpperCase());
+  //   });
+  // }
 }
 
