@@ -25,6 +25,9 @@ div.imgbox {
 h3, h1 {
   text-align: center;
 }
+h1{
+  color: white;
+}
 p {
   text-align: justify;
   padding-left: 15px;

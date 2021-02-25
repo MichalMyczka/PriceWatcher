@@ -1,4 +1,5 @@
-<div class="searchBar">
-  <label for="currencySearch">Search For {{name}}:</label><br>
-  <input [(ngModel)]="search" type="text" id="currencySearch" name="currencySearch" placeholder="Type Your {{name}} Here" (keyup)="sendSearch()">
+<div class="search__container">
+  <label for="currencySearch"></label><br>
+  <input [(ngModel)]="search" type="text" class="search__input" id="currencySearch" name="currencySearch" placeholder="Type Your {{name}} Here" (keyup)="sendSearch()">
 </div>
+
