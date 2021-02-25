@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { SearchComponent } from './shared/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     LoginPageComponent,
     SignUpPageComponent,
     UserProfileComponent,
-    UserFavouritesComponent
+    UserFavouritesComponent,
+    SearchComponent
   ],
     imports: [
         BrowserModule,
