@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'price-watcher';
+  title = 'Price Watcher';
+  options = {
+    fpsLimit: 60,
+    particles: {
+      color: {
+        value: '#cbe5ff'
+      },
+      links: {
+        enable: true,
+        color: '#cbe5ff'
+      },
+      move: {
+        enable: true
+      }
+    }
+  };
 }

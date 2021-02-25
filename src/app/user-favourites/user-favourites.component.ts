@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import firebase from 'firebase';
 import {CryptocurrenciesService} from '../services/cryptocurrencies.service';
 import {FirebaseService} from '../services/firebase.service';
@@ -11,7 +11,6 @@ import {Currency} from '../models/currency.model';
 import {Metals} from '../models/metals.model';
 import {StocksList} from '../models/stockslist.model';
 import {Router} from '@angular/router';
-import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
 
 @Component({
   selector: 'app-user-favourites',
@@ -59,9 +58,9 @@ export class UserFavouritesComponent implements OnInit {
       });
   }
 
-  loadData(){
-    let favourites = Object.keys(this.userFav);
-    for (let fav of favourites){
+  loadData(): void{
+    const favourites = Object.keys(this.userFav);
+    for (const fav of favourites){
       if ( this.userFav[fav].api === 'cryptocurrencies'){
         this.cryptocurrency.getCrypto(this.userFav[fav].base, this.userFav[fav].currency)
           .subscribe(data => {
@@ -92,13 +91,12 @@ export class UserFavouritesComponent implements OnInit {
       }
     }
   }
-  removeFromFav(base, rateSymbol){
+  removeFromFav(base, rateSymbol): void{
     const currUID = firebase.auth().currentUser.uid;
-    let favourites = Object.keys(this.userFav);
-    for (let fav of favourites) {
+    const favourites = Object.keys(this.userFav);
+    for (const fav of favourites) {
       if (this.userFav[fav].base === base && this.userFav[fav].currency === rateSymbol){
-        let deleteThis = fav;
-        firebase.database().ref('/users/' + currUID + '/favourites/' + deleteThis).remove();
+        firebase.database().ref('/users/' + currUID + '/favourites/' + fav).remove();
       }
     }
     this.reloadComponent();
@@ -113,7 +111,7 @@ export class UserFavouritesComponent implements OnInit {
 
   // getSearch($event: string) {
   //   this.searchRates = this.userFav.filter(fav => {
-  //     return fav.currency.includes( $event.toUpperCase());
+  //     return fav.currency.includes( $event.toUpperCase()) || fav.currency.includes( $event.toUpperCase());
   //   });
   // }
 }

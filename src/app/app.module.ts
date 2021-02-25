@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgParticlesModule } from "ng-particles";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { SearchComponent } from './shared/search/search.component';
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireDatabaseModule,
         AngularFirestoreModule.enablePersistence(),
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgParticlesModule
     ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

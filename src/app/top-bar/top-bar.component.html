@@ -1,23 +1,24 @@
-<div class="container">
-
-  <nav>
+<nav>
+  <div class="logo">
     <a routerLink="/landingPage">
       <img src="./assets/logo2.png" alt="logo" class="logo">
-    </a>
+    </a></div>
+  <input type="checkbox" id="click">
+  <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <ul>
+    <li><a routerLink="/currencies">Currencies</a></li>
+    <li><a routerLink="/cryptocurrencies">Cryptocurrencies</a></li>
+    <li><a routerLink="/stock">Stock</a></li>
+    <li><a routerLink="/metals">Metals</a></li>
+    <li><a routerLink="/landingPage">News</a></li>
 
-    <a routerLink="/currencies" class="tile"><p>currencies</p></a>
-    <a routerLink="/cryptocurrencies" class="tile"><p>cryptocurrencies</p></a>
-    <a routerLink="/stock" class="tile"><p>stock</p></a>
-    <a routerLink="/metals" class="tile"><p>metals</p></a>
-    <a routerLink="/landingPage" class="tile"><p>news</p></a>
+    <li *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null"><a class="active" routerLink="/login">Log In</a></li>
+    <li *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null"><a class="active" routerLink="/signUp">Sign Up</a></li>
 
-    <a *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null" routerLink="/login" class="tile"><p>Log In</p></a>
-    <a *ngIf="firebaseService.isLoggedIn === 'false' || firebaseService.isLoggedIn === null" routerLink="/signUp" class="tile"><p>Sign Up</p></a>
-
-    <a *ngIf="firebaseService.isLoggedIn === 'true'" routerLink="/userFav" class="tile"><p>Favourites</p></a>
-    <a *ngIf="firebaseService.isLoggedIn === 'true'" routerLink="/profile" class="tile"><p>Profile</p></a>
-    <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="logout()" class="tile" routerLink="/landingPage"><p>Logout</p></a>
-
-  </nav>
-
-</div>
+    <li *ngIf="firebaseService.isLoggedIn === 'true'"><a routerLink="/userFav">Favourites</a></li>
+    <li *ngIf="firebaseService.isLoggedIn === 'true'"><a routerLink="/profile">Profile</a></li>
+    <li *ngIf="firebaseService.isLoggedIn === 'true'"><a class="active" (click)="logout()" routerLink="/landingPage">Logout</a></li>
+  </ul>
+</nav>
