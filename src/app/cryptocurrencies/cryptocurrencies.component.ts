@@ -3,6 +3,8 @@ import {CryptocurrenciesService} from '../services/cryptocurrencies.service';
 import {Cryptocurrency} from '../models/cryptocurrency.model';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
+import {CryptocurrencyRates} from '../models/cryptocurrency-rates.model';
+import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
 
 @Component({
   selector: 'app-cryptocurrencies',
@@ -13,8 +15,11 @@ export class CryptocurrenciesComponent implements OnInit {
 
   public cryptoCurrencyList: Cryptocurrency;
   public cryptoCurrencyBase: string;
+  public cryptoList: CryptocurrencyBase[] = [];
 
-  constructor(private cryptocurrency: CryptocurrenciesService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
+  constructor(private cryptocurrency: CryptocurrenciesService,
+              public firebaseService: FirebaseService,
+              public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     this.getCryptoCurrencies();
@@ -24,11 +29,12 @@ export class CryptocurrenciesComponent implements OnInit {
     this.cryptocurrency.getCrypto(this.cryptoCurrencyBase)
       .subscribe(data => {
         this.cryptoCurrencyList = data;
+        this.cryptoList = this.cryptoCurrencyList.rates;
       });
   }
 
   getSearch($event: string): void {
-    this.cryptoCurrencyList.rates = this.cryptoCurrencyList.rates.filter(rate => {
+    this.cryptoList = this.cryptoCurrencyList.rates.filter(rate => {
       return rate.symbol.toUpperCase().includes($event.toUpperCase());
     });
   }

@@ -1,11 +1,8 @@
-<div class="searchBar">
-  <label for="currencySearch">Search For Stocks:</label><br>
-  <input type="text" id="currencySearch" name="currencySearch" placeholder="Type Your Stock Here"><br><br>
-</div>
+<app-search [name]="'Stocks'" (searchOutput)="getSearch($event)"></app-search>
 
 <div class="currenciesContainer">
   <ng-container *ngIf="stocksList">
-    <div *ngFor="let stock of stocksList.stock">
+    <div *ngFor="let stock of stockSearch">
       <div class="currencyTile">
         <button (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</button>
         <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>

@@ -18,7 +18,9 @@ export class CurrenciesComponent implements OnInit {
   public currencyBase: string;
   public searchRates: CurrencyRate[] = [];
 
-  constructor(private currency: CurrencyService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
+  constructor(private currency: CurrencyService,
+              public firebaseService: FirebaseService,
+              public firebaseDB: FirebaseDBService) { }
 
   ngOnInit(): void {
     this.getCurrencies(this.currencyBase);

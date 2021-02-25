@@ -3,6 +3,7 @@ import {StocksService} from '../services/stocks.service';
 import {StocksList} from '../models/stockslist.model';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
+import {Stocks} from '../models/stocks.model';
 
 @Component({
   selector: 'app-stock',
@@ -14,6 +15,7 @@ export class StockComponent implements OnInit {
   public stocksList: StocksList;
   public stockBase: string;
   public rates: any[];
+  public stockSearch: Stocks[] = [];
 
   constructor(private stocks: StocksService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
@@ -25,6 +27,13 @@ export class StockComponent implements OnInit {
     this.stocks.getStocks(this.stockBase)
       .subscribe(data => {
         this.stocksList = data;
+        this.stockSearch = this.stocksList.stock;
       });
+  }
+
+  getSearch($event: string) {
+    this.stockSearch = this.stocksList.stock.filter(rate => {
+      return rate.symbol.includes( $event.toUpperCase()) || rate.name.toUpperCase().includes($event.toUpperCase());
+    });
   }
 }
