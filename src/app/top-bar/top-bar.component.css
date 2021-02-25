@@ -7,9 +7,9 @@
 }
 nav{
   display: flex;
-  height: 80px;
+  height: 100px;
   width: 100%;
-  background: #1b1b1b;
+  background: #000d47;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -19,6 +19,7 @@ nav .logo{
   color: #fff;
   font-size: 35px;
   font-weight: 600;
+  margin-top: 5px;
 }
 nav ul{
   display: flex;
@@ -44,7 +45,7 @@ nav ul li a:hover{
   background: #fff;
 }
 nav .menu-btn i{
-  color: #fff;
+  color: white;
   font-size: 22px;
   cursor: pointer;
   display: none;
@@ -112,4 +113,7 @@ input[type="checkbox"]{
 .content div{
   font-size: 40px;
   font-weight: 700;
+}
+.fa-bars{
+  color: white;
 }
