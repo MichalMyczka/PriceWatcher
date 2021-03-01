@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 .searchBar{
   text-align: center;
   margin-top: 5%;
@@ -13,16 +14,11 @@
 }
 
 .currencyTile{
-  background-color: #039be5;
+  background-color: #000d47;
   width: 60em;
   margin: 3% auto auto;
   display: inline-block;
   vertical-align: top;
-}
-
-.favButton{
-  float: left;
-  margin: 2% 1% 1%;
 }
 
 .oneToOneExchange{
@@ -30,17 +26,119 @@
   margin-left: 5%;
 }
 
-.weeklyChange{
-  float: left;
-  margin-left: 5%;
-}
 
 .fa-arrow-down{
   float: right;
   margin: 2% 3% 1% 1%;
 }
 
-.fa-star{
-  float: left;
-  margin: 2% 1% 1%;
+a:hover{
+  color: #111;
+  background: #fff;
 }
+
+a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-color: #9279FE;
+  border-style: solid;
+}
+
+/*@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');*/
+/*body {*/
+/*  background: #2D3142;*/
+/*  font-family: 'Raleway', sans-serif;*/
+/*}*/
+
+
+/*!* Heading *!*/
+
+/*span {*/
+/*  border: 2px solid #4F5D75;*/
+/*  padding: 10px;*/
+/*}*/
+
+
+/*!* Layout Styling *!*/
+
+/*#container {*/
+/*  width: 100%;*/
+/*  margin: 0 auto;*/
+/*  padding: 50px 0 150px 0;*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  flex-wrap: wrap;*/
+/*  justify-content: center;*/
+/*}*/
+
+
+/*!* Button Styles *!*/
+
+/*.button {*/
+/*  display: inline-flex;*/
+/*  height: 40px;*/
+/*  width: 150px;*/
+/*  border: 2px solid #BFC0C0;*/
+/*  margin: 20px 20px 20px 20px;*/
+/*  color: #BFC0C0;*/
+/*  text-transform: uppercase;*/
+/*  text-decoration: none;*/
+/*  font-size: .8em;*/
+/*  letter-spacing: 1.5px;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*a {*/
+/*  color: #BFC0C0;*/
+/*  text-decoration: none;*/
+/*  letter-spacing: 1px;*/
+/*}*/
+
+/*!* Sixth Button *!*/
+
+/*#button-6 {*/
+/*  position: relative;*/
+/*  overflow: hidden;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*#button-6 a {*/
+/*  position: relative;*/
+/*  transition: all .45s ease-Out;*/
+/*}*/
+
+/*#spin {*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*  opacity: 0;*/
+/*  left: 70px;*/
+/*  top: 20px;*/
+/*  transform: rotate(0deg);*/
+/*  background: none;*/
+/*  position: absolute;*/
+/*  transition: all .5s ease-Out;*/
+/*}*/
+
+/*#button-6:hover #spin {*/
+/*  width: 200%;*/
+/*  height: 500%;*/
+/*  opacity: 1;*/
+/*  left: -70px;*/
+/*  top: -70px;*/
+/*  background: #BFC0C0;*/
+/*  transform: rotate(80deg);*/
+/*}*/
+
+/*#button-6:hover a {*/
+/*  color: #2D3142;*/
+/*}*/
