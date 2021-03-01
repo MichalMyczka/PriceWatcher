@@ -23,9 +23,13 @@ text-align: right;
   margin-left: 5%;
 }
 .fa-arrow-down{
-  float: right;
   color: white;
-  margin: 2% 3% 1% 1%;
+  float: left;
+  margin: 2% 3% 1% 5%;
+  width: 30px;
+  height: 30px;
+  margin-top: 100%;
+  margin-left: 100%;
 }
 label {
   color: white;
@@ -98,8 +102,36 @@ a{
   font-family: 'Poppins', sans-serif;
   border-color: white;
   border-style: solid;
+  float: left;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 a:hover{
+  color: #111;
+  background: #fff;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+ul li{
+  margin: 0 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+ul li a.active,
+ul li a:hover{
   color: #111;
   background: #fff;
 }

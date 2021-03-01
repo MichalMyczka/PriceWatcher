@@ -20,15 +20,25 @@
     <div *ngFor="let crypto of cryptoList">
       <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
+          <ul>
+            <li><h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3></li>
+            <li><h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol.toUpperCase()}} </h3></li>
+            <li><h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3></li>
+            <li *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">
+              <a>Add to Fav</a>
+            </li>
+            <li><i class="fas fa-arrow-down"></i></li>
+          </ul>
 
-          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3>
-          <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol.toUpperCase()}} </h3>
-          <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
-          <div class="button" id="button-6">
-            <div id="spin"></div>
-            <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add to Fav</a>
-          </div>
-          <i class="fas fa-arrow-down"></i>
+<!--          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol.toUpperCase()}} </h3>-->
+<!--          <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>-->
+<!--          <div class="button" id="button-6">-->
+<!--            <div id="spin"></div>-->
+<!--            <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add to Fav</a>-->
+<!--          </div>-->
+<!--          <i class="fas fa-arrow-down"></i>-->
+
         </div>
       </div>
     </div>
