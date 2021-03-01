@@ -1,9 +1,11 @@
 <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
 
 <div class="userInfo">
-  <img src="{{imagePath}}" id="userImage" alt="profilePic">
-  <progress id="uploader" value="0" max="100">0%</progress>
-  <input type="file" id="fileButton" value="upload" (change)="uploadNewImage(imageInput)" #imageInput>
+  <div class="imageContainer">
+    <img src="{{imagePath}}" id="userImage" alt="profilePic">
+    <progress id="uploader" value="0" max="100">0%</progress>
+    <input type="file" id="fileButton" value="upload" (change)="uploadNewImage(imageInput)" #imageInput>
+  </div>
 
   <div class="inputs">
     <label>Your Email:</label><br><br>
@@ -22,7 +24,11 @@
     <label>Your Nickname:<br><br>
       <input [(ngModel)]="userNickname" placeholder="Type Your Nickname Here" #nickname><br><br>
     </label>
+
   </div>
-  <button type="submit" value="Update" (click)="UpdateData(name.value, surname.value, nickname.value)">Update data</button>
+
+  <div class="buttonDiv">
+    <button class="updateButton" type="submit" value="Update" (click)="UpdateData(name.value, surname.value, nickname.value)">Update data</button>
+  </div>
 
 </div>
