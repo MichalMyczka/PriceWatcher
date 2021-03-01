@@ -9,6 +9,7 @@ h3{
 text-align: right;
 }
 .currenciesContainer{
+  margin-top: 4em;
   text-align: center;
 }
 .currencyTile{

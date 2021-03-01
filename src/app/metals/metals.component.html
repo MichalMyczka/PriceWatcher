@@ -19,7 +19,7 @@
       <div class="currencyTile">
         <h3 class="oneToOneExchange"> Base Currency: <br> {{metalsList.baseCurrency}} </h3>
         <h3 class="oneToOneExchange"> Metal: <br> {{rate.symbol}}</h3>
-        <h3 class="oneToOneExchange"> Price: <br> {{rate.rate}} </h3>
+        <h3 class="oneToOneExchange"> Price: <br> {{rate.rate.toPrecision(6)}} </h3>
         <h3 class="oneToOneExchange"> Unit: <br> {{metalsList.unit}} </h3>
         <div class="button">
           <div></div>

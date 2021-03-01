@@ -24,6 +24,7 @@
 }
 .currenciesContainer{
   text-align: center;
+  margin-top: 4em;
 }
 .currencyTile{
   background-color: #000d47;
