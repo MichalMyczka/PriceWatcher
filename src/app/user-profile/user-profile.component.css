@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .userInfo{
   width: 50em;
   height: 30em;
-  background-color: #039be5;
+  background-color: #000d47;
   margin: 3% auto auto;
+  color: white;
 }
 img{
   width: 200px;

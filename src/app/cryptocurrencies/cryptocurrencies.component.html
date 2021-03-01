@@ -1,9 +1,9 @@
 <app-search [name]="'Cryptocurrency'" (searchOutput)="getSearch($event)"></app-search>
 
+<label for="slct">Choose Your Base Currency:</label><br><br>
 <div class="currencyList">
-  <label for="currencyBase">Choose Your Base Currency:</label><br>
-  <select id="currencyBase" [(ngModel)]="cryptoCurrencyBase" (change)="getCryptoCurrencies()">
-    <option value='USD'>USD</option>
+  <select name="slct" id="slct" [(ngModel)]="cryptoCurrencyBase" (change)="getCryptoCurrencies()">
+    <option selected="selected" value='USD'>USD</option>
     <option value='PLN'>PLN</option>
     <option value='GBP'>GBP</option>
     <option value='CHF'>CHF</option>

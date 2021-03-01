@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
 body {
   width: 430px;
   margin: 0 auto;
@@ -25,7 +28,6 @@ body {
   padding: 12px 24px;
   background-color: transparent;
   transition: transform 250ms ease-in-out;
-  font-size: 14px;
   line-height: 18px;
   color: rgba(300, 300, 300, 0.8);
   text-transform: uppercase;
@@ -39,6 +41,9 @@ body {
   transition: all 250ms ease-in-out;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .search__input::placeholder {
