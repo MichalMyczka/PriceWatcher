@@ -11,9 +11,10 @@ body {
 }
 
 .search__container {
-  padding-top: 64px;
+  padding-top: 40px;
   width: fit-content;
   margin: auto;
+  padding-bottom: 40px;
 }
 
 .search__title {

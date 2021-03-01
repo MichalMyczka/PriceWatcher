@@ -2,10 +2,6 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
-.searchBar{
-  text-align: center;
-  margin-top: 5%;
-}
 
 h3{
   color: white;
@@ -36,6 +32,7 @@ h3{
 
 .fa-arrow-down{
   float: right;
+  color: white;
   margin: 2% 3% 1% 1%;
 }
 
@@ -117,6 +114,6 @@ a{
   transition: all 0.4s ease;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  border-color: #9279FE;
+  border-color: white;
   border-style: solid;
 }

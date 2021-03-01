@@ -36,6 +36,7 @@ h3{
 .fa-arrow-down{
  float: right;
   margin: 2% 3% 1% 1%;
+  color: white;
 }
 
 .fa-star{
@@ -103,4 +104,24 @@ select::-ms-expand {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
+}
+
+a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-color: white;
+  border-style: solid;
+}
+
+a:hover{
+  color: #111;
+  background: #fff;
 }
