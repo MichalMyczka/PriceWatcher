@@ -116,9 +116,7 @@ ul{
   list-style: none;
 }
 ul li{
-  margin: 0 5px;
-  margin-left: 0;
-  margin-right: 0;
+
 }
 ul li a{
   color: #f2f2f2;
