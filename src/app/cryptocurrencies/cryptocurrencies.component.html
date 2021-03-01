@@ -17,13 +17,14 @@
     <div *ngFor="let crypto of cryptoList">
       <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
+
+          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3>
+          <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol.toUpperCase()}} </h3>
+          <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
           <div class="button" id="button-6">
             <div id="spin"></div>
             <a (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add to Fav</a>
           </div>
-          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol}} </h3>
-          <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
-          <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
           <i class="fas fa-arrow-down"></i>
         </div>
       </div>

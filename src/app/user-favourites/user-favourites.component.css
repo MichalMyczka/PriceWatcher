@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+h3{
+  color: white;
+}
 .searchBar{
   text-align: center;
   margin-top: 5%;
@@ -13,8 +20,8 @@
 }
 
 .currencyTile{
-  background-color: #039be5;
-  width: 60em;
+  background-color: #000d47;
+  width: 70em;
   margin: 3% auto auto;
   display: inline-block;
   vertical-align: top;
@@ -37,6 +44,7 @@
 
 .fa-arrow-down{
   float: right;
+  color: white;
   margin: 2% 3% 1% 1%;
 }
 
@@ -44,3 +52,22 @@
   float: left;
   margin: 2% 1% 1%;
 }
+a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-color: white;
+  border-style: solid;
+}
+a:hover{
+  color: #111;
+  background: #fff;
+}
+

@@ -38,4 +38,22 @@ progress{
   margin-left: 50px;
   margin-top: 50px;
 }
+a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-color: white;
+  border-style: solid;
+}
+a:hover{
+  color: #111;
+  background: #fff;
+}
 
