@@ -14,7 +14,7 @@ export class MetalsComponent implements OnInit {
 
   public metalsList: Metals;
   public rates: any[];
-  public currencyBase: string;
+  public currencyBase = 'USD';
   public metalsSearch: MetalsRates[] = [];
 
   constructor(private metals: MetalsService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }

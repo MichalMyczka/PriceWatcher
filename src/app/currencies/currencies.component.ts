@@ -15,7 +15,7 @@ export class CurrenciesComponent implements OnInit {
 
   public currencyList: Currency;
   public rates: any[];
-  public currencyBase: string;
+  public currencyBase = 'USD';
   public searchRates: CurrencyRate[] = [];
 
   constructor(private currency: CurrencyService,

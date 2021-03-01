@@ -1,9 +1,9 @@
 <app-search [name]="'Metal'" (searchOutput)="getSearch($event)"></app-search>
 
+<label for="slct">Choose Your Base Currency:</label><br><br>
 <div class="currencyList">
-  <label for="currencyBase">Choose Your Base Currency:</label><br>
-  <select id="currencyBase" [(ngModel)]="currencyBase" (change)="getMetals()">
-    <option value='USD'>USD</option>
+  <select name="slct" id="slct" [(ngModel)]="currencyBase" (change)="getMetals()">
+    <option selected="selected" value='USD'>USD</option>
     <option value='PLN'>PLN</option>
     <option value='GBP'>GBP</option>
     <option value='CHF'>CHF</option>
@@ -11,11 +11,12 @@
   </select>
 </div>
 
+
 <div class="currenciesContainer">
   <ng-container *ngIf="metalsList">
     <div *ngFor="let rate of metalsSearch">
       <div class="currencyTile">
-        <button (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>
+        <button *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</button>
         <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>
         <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>
         <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>

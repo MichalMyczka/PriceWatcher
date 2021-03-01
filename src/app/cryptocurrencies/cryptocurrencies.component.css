@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .searchBar{
   text-align: center;
   margin-top: 5%;
@@ -43,4 +47,66 @@
 .fa-star{
   float: left;
   margin: 2% 1% 1%;
+}
+label {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  float: right;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: #000d47;
+  background-image: none;
+  border:1px solid black;
+}
+.currencyList {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #2C3E50;
+  overflow: hidden;
+  border-radius: .25em;
+  margin-left: 83%;
+}
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+.currencyList::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #34495E;
+  pointer-events: none;
+}
+.currencyList:hover::after {
+  color: #F39C12;
+}
+
+<!-- For different browsers -->
+.currencyList::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
 }

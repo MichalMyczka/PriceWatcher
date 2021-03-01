@@ -1,9 +1,9 @@
 <app-search [name]="'Cryptocurrency'" (searchOutput)="getSearch($event)"></app-search>
 
+<label for="slct">Choose Your Base Currency:</label><br><br>
 <div class="currencyList">
-  <label for="currencyBase">Choose Your Base Currency:</label><br>
-  <select id="currencyBase" [(ngModel)]="cryptoCurrencyBase" (change)="getCryptoCurrencies()">
-    <option value='USD'>USD</option>
+  <select name="slct" id="slct" [(ngModel)]="cryptoCurrencyBase" (change)="getCryptoCurrencies()">
+    <option selected="selected" value='USD'>USD</option>
     <option value='PLN'>PLN</option>
     <option value='GBP'>GBP</option>
     <option value='CHF'>CHF</option>
@@ -16,8 +16,8 @@
     <div *ngFor="let crypto of cryptoList">
       <div *ngFor="let inner of crypto.rate">
         <div class="currencyTile">
-          <button (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add To Fav</button>
-          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol}} </h3>
+          <button *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add To Fav</button>
+          <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3>
           <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
           <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
           <i class="fas fa-arrow-down"></i>

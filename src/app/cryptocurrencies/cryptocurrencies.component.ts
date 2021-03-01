@@ -14,7 +14,7 @@ import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
 export class CryptocurrenciesComponent implements OnInit {
 
   public cryptoCurrencyList: Cryptocurrency;
-  public cryptoCurrencyBase: string;
+  public cryptoCurrencyBase = 'USD';
   public cryptoList: CryptocurrencyBase[] = [];
 
   constructor(private cryptocurrency: CryptocurrenciesService,
