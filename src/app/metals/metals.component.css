@@ -6,9 +6,21 @@
   text-align: center;
   margin-top: 5%;
 }
+.baseCurrSelect{
+  text-align: right;
+}
 .currencyList{
   text-align: right;
-  margin-right: 2%;
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #2C3E50;
+  overflow: hidden;
+  border-radius: .25em;
+  float: right;
+  color: white;
 }
 .currenciesContainer{
   text-align: center;
@@ -85,7 +97,7 @@ select::-ms-expand {
   pointer-events: none;
 }
 .currencyList:hover::after {
-  color: #F39C12;
+  color: black;
 }
 
 <!-- For different browsers -->

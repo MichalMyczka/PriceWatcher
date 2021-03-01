@@ -5,6 +5,9 @@
 h3{
   color: white;
 }
+.baseCurrSelect{
+text-align: right;
+}
 .currenciesContainer{
   text-align: center;
 }
@@ -29,11 +32,9 @@ label {
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  float: right;
 }
 .currencyList {
   text-align: right;
-  margin-right: 2%;
   position: relative;
   display: block;
   width: 20em;

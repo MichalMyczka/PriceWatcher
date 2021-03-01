@@ -1,16 +1,17 @@
 <app-search [name]="'Metal'" (searchOutput)="getSearch($event)"></app-search>
 
-<label for="slct">Choose Your Base Currency:</label><br><br>
-<div class="currencyList">
-  <select name="slct" id="slct" [(ngModel)]="currencyBase" (change)="getMetals()">
-    <option selected="selected" value='USD'>USD</option>
-    <option value='PLN'>PLN</option>
-    <option value='GBP'>GBP</option>
-    <option value='CHF'>CHF</option>
-    <option value='EUR'>EUR</option>
-  </select>
+<div class="baseCurrSelect">
+  <label for="slct">Choose Your Base Currency:</label><br><br>
+  <div class="currencyList">
+    <select name="slct" id="slct" [(ngModel)]="currencyBase" (change)="getMetals()">
+      <option selected="selected" value='USD'>USD</option>
+      <option value='PLN'>PLN</option>
+      <option value='GBP'>GBP</option>
+      <option value='CHF'>CHF</option>
+      <option value='EUR'>EUR</option>
+    </select>
+  </div>
 </div>
-
 
 <div class="currenciesContainer">
   <ng-container *ngIf="metalsList">
