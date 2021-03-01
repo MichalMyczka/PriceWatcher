@@ -1,15 +1,16 @@
-<!--<app-search [name]="'Favourites'" (searchOutput)="getSearch($event)"></app-search>-->
-
 <div class="currenciesContainer">
   <ng-container *ngIf="cryptoList">
     <div *ngFor="let object of cryptoList">
       <div *ngFor="let crypto of object.rates">
         <div *ngFor="let inner of crypto.rate">
           <div class="currencyTile">
-            <button (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/userFav">Remove From Fav</button>
-            <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol}} </h3>
-            <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol}} </h3>
+            <h3 class="oneToOneExchange"> Base Currency: {{inner.rateSymbol.toUpperCase()}} </h3>
+            <h3 class="oneToOneExchange"> CryptoCurrency: {{crypto.symbol.toUpperCase()}} </h3>
             <h3 class="oneToOneExchange"> Current Price: {{inner.ratePrice}} </h3>
+            <div class="button">
+              <div></div>
+              <a (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/userFav">Remove From Fav</a>
+            </div>
             <i class="fas fa-arrow-down"></i>
           </div>
         </div>
@@ -22,10 +23,13 @@
   <div *ngFor="let object of curList">
     <div *ngFor="let rate of object.rates">
       <div class="currencyTile">
-        <button (click)="removeFromFav(currencyList.base_currency_code, rate.base)" routerLink="/userFav">Remove From Fav</button>
         <h3 class="oneToOneExchange" > Base Currency: {{currencyList.base_currency_code}}</h3>
         <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
         <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>
+        <div class="button">
+          <div></div>
+          <a (click)="removeFromFav(currencyList.base_currency_code, rate.base)" routerLink="/userFav">Remove From Fav</a>
+        </div>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>
@@ -37,11 +41,14 @@
   <div *ngFor="let object of metList">
     <div *ngFor="let rate of object.rates">
       <div class="currencyTile">
-        <button (click)="removeFromFav(metalsList.baseCurrency, rate.symbol)" routerLink="/userFav">Remove From Fav</button>
         <h3 class="oneToOneExchange"> Base Currency: {{metalsList.baseCurrency}} </h3>
         <h3 class="oneToOneExchange"> Metal: {{rate.symbol}}</h3>
         <h3 class="oneToOneExchange"> Price: {{rate.rate}} </h3>
         <h3 class="oneToOneExchange"> Unit: {{metalsList.unit}} </h3>
+        <div class="button">
+          <div></div>
+          <a (click)="removeFromFav(metalsList.baseCurrency, rate.symbol)" routerLink="/userFav">Remove From Fav</a>
+        </div>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>
@@ -53,11 +60,14 @@
   <div *ngFor="let object of stoList">
     <div *ngFor="let stock of object.stock">
       <div class="currencyTile">
-        <button (click)="removeFromFav('USD', stock.symbol)" routerLink="/userFav">Remove From Fav</button>
         <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>
         <h3 class="oneToOneExchange"> Base: USD </h3>
         <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>
         <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>
+        <div class="button">
+          <div></div>
+          <a (click)="removeFromFav('USD', stock.symbol)" routerLink="/userFav">Remove From Fav</a>
+        </div>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>

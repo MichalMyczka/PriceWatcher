@@ -2,43 +2,27 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
-
 h3{
   color: white;
 }
-
-.currencyList{
-  text-align: right;
-  margin-right: 2%;
-}
-
 .currenciesContainer{
   text-align: center;
 }
-
 .currencyTile{
   background-color: #000d47;
-  width: 60em;
+  width: 70em;
   margin: 3% auto auto;
   display: inline-block;
   vertical-align: top;
 }
-
 .oneToOneExchange{
   float: left;
   margin-left: 5%;
 }
-
-
 .fa-arrow-down{
   float: right;
   color: white;
   margin: 2% 3% 1% 1%;
-}
-
-a:hover{
-  color: #111;
-  background: #fff;
 }
 label {
   color: white;
@@ -47,17 +31,9 @@ label {
   font-weight: 500;
   float: right;
 }
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  background: #000d47;
-  background-image: none;
-  border:1px solid black;
-}
 .currencyList {
+  text-align: right;
+  margin-right: 2%;
   position: relative;
   display: block;
   width: 20em;
@@ -68,20 +44,6 @@ select {
   border-radius: .25em;
   float: right;
   color: white;
-}
-select {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 .5em;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-select::-ms-expand {
-  display: none;
 }
 .currencyList::after {
   content: '\25BC';
@@ -96,14 +58,32 @@ select::-ms-expand {
 .currencyList:hover::after {
   color: black;
 }
-
-<!-- For different browsers -->
 .currencyList::after {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
 }
-
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: #000d47 none;
+  border:1px solid black;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
 a{
   color: #f2f2f2;
   text-decoration: none;
@@ -117,4 +97,8 @@ a{
   font-family: 'Poppins', sans-serif;
   border-color: white;
   border-style: solid;
+}
+a:hover{
+  color: #111;
+  background: #fff;
 }
