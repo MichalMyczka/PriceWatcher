@@ -67,6 +67,7 @@ select {
   overflow: hidden;
   border-radius: .25em;
   float: right;
+  color: white;
 }
 select {
   width: 100%;
@@ -93,7 +94,7 @@ select::-ms-expand {
   pointer-events: none;
 }
 .currencyList:hover::after {
-  color: #F39C12;
+  color: black;
 }
 
 <!-- For different browsers -->

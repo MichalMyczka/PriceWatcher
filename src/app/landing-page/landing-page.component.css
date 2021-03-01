@@ -2,18 +2,20 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+
 div.container {
-  width: 90%;
+  width: 70%;
   padding: 15px 0 15px 15px;
   border-radius: 4px;
-  margin: 1% 1% 1% 1%;
   background-color: #000d47;
+  margin: 0 auto 1%;
 }
 
 div.box {
   box-sizing: border-box;
   width: 70%;
   float: left;
+  text-align: center;
 }
 
 div.imgbox {
@@ -34,4 +36,8 @@ p {
   padding-left: 15px;
   padding-right: 15px;
   color: white;
+}
+#lol{
+  text-align: center;
+
 }
