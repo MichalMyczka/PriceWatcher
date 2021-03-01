@@ -24,17 +24,11 @@
   vertical-align: top;
 }
 
-.favButton{
-  float: left;
-  margin: 2% 1% 1%;
+h3{
+  color: white;
 }
 
 .oneToOneExchange{
-  float: left;
-  margin-left: 5%;
-}
-
-.weeklyChange{
   float: left;
   margin-left: 5%;
 }
