@@ -1,15 +1,5 @@
 <app-search [name]="'Currency'" (searchOutput)="getSearch($event)"></app-search>
 
-<!--<div class="currencyList">-->
-<!--  <label for="currencyBase">Choose Your Base Currency:</label><br><br>-->
-<!--    <select id="currencyBase" [(ngModel)]="currencyBase" (change)="getCurrencies(currencyBase)">-->
-<!--      <option selected="selected" value='USD'>USD</option>-->
-<!--      <option value='PLN'>PLN</option>-->
-<!--      <option value='GBP'>GBP</option>-->
-<!--      <option value='CHF'>CHF</option>-->
-<!--      <option value='EUR'>EUR</option>-->
-<!--    </select>-->
-<!--</div>-->
 <label for="slct">Choose Your Base Currency:</label><br><br>
 <div class="currencyList">
   <select name="slct" id="slct" [(ngModel)]="currencyBase" (change)="getCurrencies(currencyBase)">
@@ -26,10 +16,13 @@
   <ng-container *ngIf="currencyList">
     <div *ngFor="let rate of searchRates">
       <div class="currencyTile">
-        <button *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</button>
         <h3 class="oneToOneExchange" > Base Currency: {{currencyList.base_currency_code}}</h3>
         <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
         <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>
+        <div class="button">
+          <div></div>
+          <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
+        </div>
         <i class="fas fa-arrow-down"></i>
       </div>
     </div>

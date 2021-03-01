@@ -27,8 +27,6 @@ body {
 .search__input {
   width: 150%;
   padding: 12px 24px;
-  background-color: transparent;
-  transition: transform 250ms ease-in-out;
   line-height: 18px;
   color: rgba(300, 300, 300, 0.8);
   text-transform: uppercase;

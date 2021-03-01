@@ -6,16 +6,13 @@
   text-align: center;
   margin-top: 5%;
 }
-
 .currencyList{
   text-align: right;
   margin-right: 2%;
 }
-
 .currenciesContainer{
   text-align: center;
 }
-
 .currencyTile{
   background-color: #000d47;
   width: 60em;
@@ -23,24 +20,17 @@
   display: inline-block;
   vertical-align: top;
 }
-
 h3{
   color: white;
 }
-
 .oneToOneExchange{
   float: left;
   margin-left: 5%;
 }
-
 .fa-arrow-down{
   float: right;
+  color: white;
   margin: 2% 3% 1% 1%;
-}
-
-.fa-star{
-  float: left;
-  margin: 2% 1% 1%;
 }
 label {
   color: white;
@@ -103,4 +93,22 @@ select::-ms-expand {
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
+}
+a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-color: white;
+  border-style: solid;
+}
+a:hover{
+  color: #111;
+  background: #fff;
 }
