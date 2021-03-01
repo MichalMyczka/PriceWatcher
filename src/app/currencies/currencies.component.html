@@ -17,9 +17,9 @@
   <ng-container *ngIf="currencyList">
     <div *ngFor="let rate of searchRates">
       <div class="currencyTile">
-        <h3 class="oneToOneExchange" > Base Currency: {{currencyList.base_currency_code}}</h3>
-        <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: {{rate.base}} </h3>
-        <h3 class="oneToOneExchange"> Current Price: {{rate.rate}} </h3>
+        <h3 class="oneToOneExchange">Base Currency: <br>  {{currencyList.base_currency_code}}</h3>
+        <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: <br> {{rate.base}} </h3>
+        <h3 class="oneToOneExchange"> Current Price: <br> {{rate.rate}} </h3>
         <div class="button">
           <div></div>
           <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
