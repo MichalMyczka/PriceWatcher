@@ -4,10 +4,10 @@
   <ng-container *ngIf="stocksList">
     <div *ngFor="let stock of stockSearch">
       <div class="currencyTile">
-        <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: {{stock.symbol}} </h3>
-        <h3 class="oneToOneExchange"> Base: USD </h3>
-        <h3 class="oneToOneExchange"> Price: {{stock.price}} </h3>
-        <h3 class="weeklyChange">Percentage change: {{stock.changesPercentage}}%</h3>
+        <h3 class="oneToOneExchange" title="{{stock.name}}"> Stock Symbol: <br> {{stock.symbol}} </h3>
+        <h3 class="oneToOneExchange"> Base: <br> USD </h3>
+        <h3 class="oneToOneExchange"> Price: <br> {{stock.price}} </h3>
+        <h3 class="weeklyChange">Percentage change: <br> {{stock.changesPercentage}}%</h3>
         <div class="button">
           <div></div>
           <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</a>

@@ -18,10 +18,12 @@
 
 .currencyTile{
   background-color: #000d47;
-  width: 60em;
+  width: 70em;
   margin: 3% auto auto;
-  display: inline-block;
   vertical-align: top;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 250px 250px 100px;
+  grid-gap: 10px;
 }
 
 h3{
@@ -38,9 +40,11 @@ h3{
   margin-left: 5%;
 }
 .fa-arrow-down{
-  float: right;
+  float: left;
   color: white;
-  margin: 2% 3% 1% 1%;
+  width: 30px;
+  height: 30px;
+  margin: 30% 3% 1% 30%;
 }
 a{
   color: #f2f2f2;
@@ -55,6 +59,9 @@ a{
   font-family: 'Poppins', sans-serif;
   border-color: white;
   border-style: solid;
+  float: left;
+  margin-top: 10%;
+  margin-left: 30%;
 }
 a:hover{
   color: #111;

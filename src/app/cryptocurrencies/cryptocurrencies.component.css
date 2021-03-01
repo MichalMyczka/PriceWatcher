@@ -15,21 +15,21 @@ text-align: right;
   background-color: #000d47;
   width: 70em;
   margin: 3% auto auto;
-  display: inline-block;
   vertical-align: top;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
 }
 .oneToOneExchange{
   float: left;
   margin-left: 5%;
 }
 .fa-arrow-down{
-  color: white;
   float: left;
-  margin: 2% 3% 1% 5%;
+  color: white;
   width: 30px;
   height: 30px;
-  margin-top: 100%;
-  margin-left: 100%;
+  margin: 15% 3% 1% 30%;
 }
 label {
   color: white;
@@ -103,35 +103,10 @@ a{
   border-color: white;
   border-style: solid;
   float: left;
-  margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 10%;
+  margin-left: 30%;
 }
 a:hover{
-  color: #111;
-  background: #fff;
-}
-ul{
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
-ul li{
-  margin: 0 5px;
-  margin-left: 0;
-  margin-right: 0;
-}
-ul li a{
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 15px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  transition: all 0.4s ease;
-}
-ul li a.active,
-ul li a:hover{
   color: #111;
   background: #fff;
 }
