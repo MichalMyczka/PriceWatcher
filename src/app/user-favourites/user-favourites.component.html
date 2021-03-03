@@ -7,11 +7,14 @@
             <h3 class="oneToOneExchange"> Base Currency: <br> {{inner.rateSymbol.toUpperCase()}} </h3>
             <h3 class="oneToOneExchange"> CryptoCurrency: <br> {{crypto.symbol.toUpperCase()}} </h3>
             <h3 class="oneToOneExchange"> Current Price: <br> {{inner.ratePrice}} </h3>
-            <div class="button">
-              <div></div>
-              <a (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/userFav">Remove From Fav</a>
+            <div class="button" id="button-6">
+              <div id="spin"></div>
+              <a class="favourites" (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/userFav">Remove From Fav</a>
             </div>
-            <i class="fas fa-arrow-down"></i>
+            <a (click)="showChartCrypto(crypto.symbol.toUpperCase(), inner.rateSymbol.toUpperCase())"><i id="{{crypto.symbol.toUpperCase()}}" class="fas fa-arrow-down"></i></a>
+          </div>
+          <div class="chartContainer">
+            <app-trading-view *ngIf="show && this.temp === 'COINBASE:' + crypto.symbol.toUpperCase() + inner.rateSymbol.toUpperCase() " [symbol]="chartData"></app-trading-view>
           </div>
         </div>
       </div>
@@ -19,18 +22,22 @@
   </ng-container>
 
 
+
 <ng-container *ngIf="curList">
   <div *ngFor="let object of curList">
     <div *ngFor="let rate of object.rates">
       <div class="currencyTile">
-        <h3 class="oneToOneExchange" > Base Currency: <br> {{currencyList.base_currency_code}}</h3>
+        <h3 class="oneToOneExchange">Base Currency: <br>  {{currencyList.base_currency_code}}</h3>
         <h3 class="oneToOneExchange" title="{{rate.name}}"> Currency: <br> {{rate.base}} </h3>
         <h3 class="oneToOneExchange"> Current Price: <br> {{rate.rate}} </h3>
         <div class="button">
           <div></div>
-          <a (click)="removeFromFav(currencyList.base_currency_code, rate.base)" routerLink="/userFav">Remove From Fav</a>
+          <a class="favourites" (click)="removeFromFav(currencyList.base_currency_code, rate.base)" routerLink="/userFav">Remove From Fav</a>
         </div>
-        <i class="fas fa-arrow-down"></i>
+        <a (click)="showChartCur(rate.base, currencyList.base_currency_code)"><i id="{{rate.base}}" class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="chartContainer">
+        <app-trading-view *ngIf="show && this.chartData === 'FX_IDC:' + currencyList.base_currency_code + rate.base" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
   </div>
@@ -43,12 +50,15 @@
       <div class="currencyTile">
         <h3 class="oneToOneExchange"> Base Currency: <br> {{metalsList.baseCurrency}} </h3>
         <h3 class="oneToOneExchange"> Metal: <br> {{rate.symbol}}</h3>
-        <h3 class="oneToOneExchange"> Price: <br> {{rate.rate}} </h3>
+        <h3 class="oneToOneExchange"> Price: <br> {{rate.rate.toPrecision(6)}} </h3>
         <div class="button">
           <div></div>
-          <a (click)="removeFromFav(metalsList.baseCurrency, rate.symbol)" routerLink="/userFav">Remove From Fav</a>
+          <a class="favourites" (click)="removeFromFav(metalsList.baseCurrency, rate.symbol)" routerLink="/userFav">Remove From Fav</a>
         </div>
-        <i class="fas fa-arrow-down"></i>
+        <a (click)="showChartMetals(rate.symbol, metalsList.baseCurrency)"><i id="{{rate.symbol}}" class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="chartContainer">
+        <app-trading-view *ngIf="show && this.temp === 'FX_IDC:' + rate.symbol + metalsList.baseCurrency" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
   </div>
@@ -64,9 +74,12 @@
         <h3 class="oneToOneExchange"> Price: <br> {{stock.price}} </h3>
         <div class="button">
           <div></div>
-          <a (click)="removeFromFav('USD', stock.symbol)" routerLink="/userFav">Remove From Fav</a>
+          <a class="favourites" (click)="removeFromFav('USD', stock.symbol)" routerLink="/userFav">Remove From Fav</a>
         </div>
-        <i class="fas fa-arrow-down"></i>
+        <a (click)="showChartStock(stock.symbol, 'USD')"><i id="{{stock.symbol}}" class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="chartContainer">
+        <app-trading-view *ngIf="show && this.chartData === 'NASDAQ:' + stock.symbol" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
   <div class="currencyList">
     <select name="slct" id="slct" [(ngModel)]="currencyBase" (change)="getCurrencies(currencyBase)">
       <option selected="selected" value='USD'>USD</option>
-      <option value='PLN'>PLN</option>
+      <option value='JPY'>JPY</option>
       <option value='GBP'>GBP</option>
       <option value='CHF'>CHF</option>
       <option value='EUR'>EUR</option>
@@ -24,15 +24,12 @@
           <div></div>
           <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
         </div>
-        <a (click)="showChart(rate.base, currencyList.base_currency_code)"><i class="fas fa-arrow-down"></i></a>
+        <a (click)="showChart(rate.base, currencyList.base_currency_code)"><i id="{{rate.base}}" class="fas fa-arrow-down"></i></a>
       </div>
       <div class="chartContainer">
-        <app-trading-view *ngIf="show && this.chartData === rate.base + currencyList.base_currency_code" [symbol]="chartData"></app-trading-view>
+        <app-trading-view *ngIf="show && this.chartData === 'FX_IDC:' + currencyList.base_currency_code + rate.base" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
-
-
-    // chartdata === rate.base + currencyList.base_currency_code
   </ng-container>
 </div>
 

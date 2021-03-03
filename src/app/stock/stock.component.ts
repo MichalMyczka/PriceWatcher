@@ -16,6 +16,8 @@ export class StockComponent implements OnInit {
   public stockBase: string;
   public rates: any[];
   public stockSearch: Stocks[] = [];
+  public show = false;
+  public chartData = '';
 
   constructor(private stocks: StocksService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
@@ -35,5 +37,16 @@ export class StockComponent implements OnInit {
     this.stockSearch = this.stocksList.stock.filter(rate => {
       return rate.symbol.includes( $event.toUpperCase()) || rate.name.toUpperCase().includes($event.toUpperCase());
     });
+  }
+
+  showChart(currency: string, base: string): void {
+    this.show = !this.show;
+    this.chartData = 'NASDAQ:' + currency ;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
   }
 }

@@ -16,6 +16,9 @@ export class MetalsComponent implements OnInit {
   public rates: any[];
   public currencyBase = 'USD';
   public metalsSearch: MetalsRates[] = [];
+  public show = false;
+  public chartData = '';
+  public temp = '';
 
   constructor(private metals: MetalsService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
 
@@ -35,5 +38,23 @@ export class MetalsComponent implements OnInit {
     this.metalsSearch = this.metalsList.rates.filter(rate => {
       return rate.symbol.includes( $event.toUpperCase());
     });
+  }
+
+  showChart(currency: string, base: string): void {
+    this.show = !this.show;
+    this.temp = 'FX_IDC:' + currency + base;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
+    if (currency === 'PL'){
+      currency = 'XPT';
+    }
+    if (currency === 'PA'){
+      currency = 'XPD';
+    }
+    this.chartData = 'FX_IDC:' + currency + base;
   }
 }
