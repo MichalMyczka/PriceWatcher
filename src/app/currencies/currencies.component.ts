@@ -43,7 +43,6 @@ export class CurrenciesComponent implements OnInit {
 
   changeShowing(): void{
       this.show = !this.show;
-      // document.getElementById('bla').style
       console.log('y');
       console.log(this.show);
   }
