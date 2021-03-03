@@ -24,11 +24,15 @@
           <div></div>
           <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
         </div>
-        <a (click)="changeShowing()"><i class="fas fa-arrow-down"></i></a>
-        <app-trading-view id="bla" *ngIf="show" [symbol]="rate.base + currencyList.base_currency_code"></app-trading-view>
+        <a (click)="showChart(rate.base, currencyList.base_currency_code)"><i class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="chartContainer">
+        <app-trading-view *ngIf="show && this.chartData === rate.base + currencyList.base_currency_code" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
 
+
+    // chartdata === rate.base + currencyList.base_currency_code
   </ng-container>
 </div>
 

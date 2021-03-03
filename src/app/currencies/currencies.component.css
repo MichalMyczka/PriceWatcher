@@ -140,3 +140,11 @@ select::-ms-expand {
   color: #111;
   background: #fff;
 }
+#bla{
+  visibility: hidden;
+}
+.chartContainer{
+  background-color: #000d47;
+  width: 70em;
+  margin: auto;
+}

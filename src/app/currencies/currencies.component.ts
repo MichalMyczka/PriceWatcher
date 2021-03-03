@@ -18,6 +18,7 @@ export class CurrenciesComponent implements OnInit {
   public currencyBase = 'USD';
   public searchRates: CurrencyRate[] = [];
   public show = false;
+  public chartData = '';
 
   constructor(private currency: CurrencyService,
               public firebaseService: FirebaseService,
@@ -43,8 +44,18 @@ export class CurrenciesComponent implements OnInit {
 
   changeShowing(): void{
       this.show = !this.show;
-      // document.getElementById('bla').style
+      if (this.show === true){
+        document.getElementById('bla').style.visibility = 'visible';
+      }
+      else if (this.show === false){
+        document.getElementById('bla').style.visibility = 'hidden';
+      }
       console.log('y');
       console.log(this.show);
+  }
+
+  showChart(currency: string, base: string): void {
+    this.show = !this.show;
+    this.chartData = currency + base;
   }
 }
