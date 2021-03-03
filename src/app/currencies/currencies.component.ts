@@ -5,6 +5,7 @@ import {FormControl} from '@angular/forms';
 import {CurrencyRate} from '../models/currency-rates.model';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-currencies',
@@ -42,20 +43,14 @@ export class CurrenciesComponent implements OnInit {
     });
   }
 
-  changeShowing(): void{
-      this.show = !this.show;
-      if (this.show === true){
-        document.getElementById('bla').style.visibility = 'visible';
-      }
-      else if (this.show === false){
-        document.getElementById('bla').style.visibility = 'hidden';
-      }
-      console.log('y');
-      console.log(this.show);
-  }
-
   showChart(currency: string, base: string): void {
     this.show = !this.show;
-    this.chartData = currency + base;
+    this.chartData = 'FX_IDC:' + base + currency ;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
   }
 }

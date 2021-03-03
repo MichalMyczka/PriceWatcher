@@ -16,7 +16,7 @@ export class StocksService {
 
   constructor(private http: HttpClient) { }
 
-  getStocks(stocksBase = 'AAPL,FB,GOOG,TSLA,MSFT,AMZN,BABA,TSM,V,JNJ'): Observable<StocksList>{
+  getStocks(stocksBase = 'AAPL,FB,GOOG,TSLA,MSFT,AMZN,ADBE,AMD,ASML,ATVI'): Observable<StocksList>{
     return this.http.get<StocksList>(`${environment.stocksApiUrl}/${stocksBase}?${environment.stocksApiKey}`).pipe(
       map(result => {
         const stock: StocksList = {

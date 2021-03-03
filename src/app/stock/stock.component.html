@@ -9,10 +9,13 @@
         <h3 class="weeklyChange">Percentage change: <br> {{stock.changesPercentage}}%</h3>
         <div class="button">
           <div></div>
-          <a *ngIf="firebaseService.isLoggedIn === 'true'"
+          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'"
              (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</a>
         </div>
-        <i class="fas fa-arrow-down"></i>
+        <a (click)="showChart(stock.symbol, 'USD')"><i id="{{stock.symbol}}" class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="chartContainer">
+        <app-trading-view *ngIf="show && this.chartData === 'NASDAQ:' + stock.symbol" [symbol]="chartData"></app-trading-view>
       </div>
     </div>
   </ng-container>

@@ -23,6 +23,11 @@ export class UserFavouritesComponent implements OnInit {
   public currency: string;
   public api: string;
 
+  public show = false;
+  public chartData = '';
+  public temp = '';
+  public counter = 0;
+
   public cryptoCurrencyList: Cryptocurrency;
   public currencyList: Currency;
   public metalsList: Metals;
@@ -109,10 +114,94 @@ export class UserFavouritesComponent implements OnInit {
     this.router.navigate([currentUrl]);
   }
 
-  // getSearch($event: string) {
-  //   this.searchRates = this.userFav.filter(fav => {
-  //     return fav.currency.includes( $event.toUpperCase()) || fav.currency.includes( $event.toUpperCase());
-  //   });
-  // }
+  showChartMetals(currency: string, base: string): void {
+    this.show = !this.show;
+    this.counter ++;
+    this.temp = 'FX_IDC:' + currency + base;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
+    if (currency === 'PL'){
+      currency = 'XPT';
+    }
+    if (currency === 'PA'){
+      currency = 'XPD';
+    }
+    this.chartData = 'FX_IDC:' + currency + base;
+    if (this.counter >= 2){
+      this.counter = 0;
+      this.temp = '';
+    }
+  }
+
+  showChartCrypto(currency: string, base: string): void {
+    this.show = !this.show;
+    this.counter ++;
+    this.temp = 'COINBASE:' + currency + base;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
+    if (currency === 'POLKADOT'){
+      currency = 'DOT';
+    }
+    if (currency === 'MONERO'){
+      currency = 'XMR';
+    }
+    if (currency === 'LITECOIN'){
+      currency = 'LTC';
+    }
+    if (currency === 'CHAINLINK'){
+      currency = 'LINK';
+    }
+    if (currency === 'BITCOIN'){
+      currency = 'BTC';
+    }
+    if (currency === 'TETHER'){
+      currency = 'USDT';
+    }
+    if (currency === 'ETHEREUM'){
+      currency = 'ETH';
+    }
+    if (currency === 'CARDANO'){
+      currency = 'ADA';
+    }
+    if (currency === 'STELLAR'){
+      currency = 'XLM';
+    }
+    if (currency === 'DASH'){
+      currency = 'DASH';
+    }
+    this.chartData = 'KRAKEN:' + currency + base;
+    if (this.counter >= 2){
+      this.counter = 0;
+      this.temp = '';
+    }
+  }
+  showChartCur(currency: string, base: string): void {
+    this.show = !this.show;
+    this.chartData = 'FX_IDC:' + base + currency ;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
+  }
+  showChartStock(currency: string, base: string): void {
+    this.show = !this.show;
+    this.chartData = 'NASDAQ:' + currency ;
+    if (this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotating 2s forwards';
+    }
+    else if (!this.show && currency === currency){
+      document.getElementById(currency).style.animation = 'rotatingBack 2s forwards';
+    }
+  }
 }
 
