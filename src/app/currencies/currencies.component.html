@@ -22,11 +22,13 @@
         <h3 class="oneToOneExchange"> Current Price: <br> {{rate.rate}} </h3>
         <div class="button">
           <div></div>
-          <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
+          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
         </div>
-        <i class="fas fa-arrow-down"></i>
+        <a (click)="changeShowing()"><i class="fas fa-arrow-down"></i></a>
+        <app-trading-view id="bla" *ngIf="show" [symbol]="rate.base + currencyList.base_currency_code"></app-trading-view>
       </div>
     </div>
+
   </ng-container>
 </div>
 

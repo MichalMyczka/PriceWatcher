@@ -17,6 +17,7 @@ export class CurrenciesComponent implements OnInit {
   public rates: any[];
   public currencyBase = 'USD';
   public searchRates: CurrencyRate[] = [];
+  public show = false;
 
   constructor(private currency: CurrencyService,
               public firebaseService: FirebaseService,
@@ -38,5 +39,12 @@ export class CurrenciesComponent implements OnInit {
     this.searchRates = this.currencyList.rates.filter(rate => {
       return rate.base.includes( $event.toUpperCase()) || rate.name.toUpperCase().includes($event.toUpperCase());
     });
+  }
+
+  changeShowing(): void{
+      this.show = !this.show;
+      // document.getElementById('bla').style
+      console.log('y');
+      console.log(this.show);
   }
 }
