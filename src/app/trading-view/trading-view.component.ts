@@ -45,7 +45,7 @@ export class TradingViewComponent implements AfterViewInit {
           ]
         ],
         chartOnly: false,
-        width: 1000,
+        width: 1120,
         height: 400,
         locale: 'pl',
         colorTheme: 'dark',
@@ -53,7 +53,7 @@ export class TradingViewComponent implements AfterViewInit {
         trendLineColor: '#1976d2',
         fontColor: '#787b86',
         underLineColor: 'rgba(55, 166, 239, 0.15)',
-        isTransparent: false,
+        isTransparent: true,
         autosize: false,
         container_id: 'tradingview_a695c'
       };
