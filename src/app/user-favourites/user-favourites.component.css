@@ -44,9 +44,8 @@ h3{
   height: 30px;
   margin: 15% 3% 1% 30%;
 }
-.fa-star{
-  float: left;
-  margin: 2% 1% 1%;
+.fa-arrow-down:hover{
+  cursor: pointer;
 }
 .favourites{
   color: #f2f2f2;

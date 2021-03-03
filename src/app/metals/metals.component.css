@@ -49,6 +49,9 @@ h3{
   height: 30px;
   margin: 30% 3% 1% 30%;
 }
+.fa-arrow-down:hover{
+  cursor: pointer;
+}
 label {
   color: white;
   text-decoration: none;

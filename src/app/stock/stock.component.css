@@ -46,6 +46,9 @@ h3{
   height: 30px;
   margin: 30% 3% 1% 30%;
 }
+.fa-arrow-down:hover{
+  cursor: pointer;
+}
 .favourites{
   color: #f2f2f2;
   text-decoration: none;

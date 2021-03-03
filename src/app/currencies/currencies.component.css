@@ -56,8 +56,8 @@ h3{
   margin: 15% 3% 1% 30%;
 }
 
-.fa-arrow-down:active{
-  transform: rotate(180deg);
+.fa-arrow-down:hover{
+  cursor: pointer;
 }
 
 label {
@@ -145,9 +145,7 @@ select::-ms-expand {
   color: #111;
   background: #fff;
 }
-#bla{
-  visibility: hidden;
-}
+
 .chartContainer{
   background-color: #000d47;
   width: 70em;
