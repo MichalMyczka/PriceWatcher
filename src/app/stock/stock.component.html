@@ -1,5 +1,4 @@
 <app-search [name]="'Stock'" (searchOutput)="getSearch($event)"></app-search>
-
 <div class="currenciesContainer">
   <ng-container *ngIf="stocksList">
     <div *ngFor="let stock of stockSearch">
@@ -10,7 +9,8 @@
         <h3 class="weeklyChange">Percentage change: <br> {{stock.changesPercentage}}%</h3>
         <div class="button">
           <div></div>
-          <a *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</a>
+          <a *ngIf="firebaseService.isLoggedIn === 'true'"
+             (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</a>
         </div>
         <i class="fas fa-arrow-down"></i>
       </div>

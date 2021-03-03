@@ -21,6 +21,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { SearchComponent } from './shared/search/search.component';
 import {NgParticlesModule} from 'ng-particles';
+import { TradingViewComponent } from './trading-view/trading-view.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {NgParticlesModule} from 'ng-particles';
     SignUpPageComponent,
     UserProfileComponent,
     UserFavouritesComponent,
-    SearchComponent
+    SearchComponent,
+    TradingViewComponent
   ],
     imports: [
         BrowserModule,
