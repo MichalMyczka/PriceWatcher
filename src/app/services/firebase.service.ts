@@ -43,5 +43,13 @@ export class FirebaseService {
       base: baseCurrency,
       api: currency
     });
+    this.reloadComponent();
+  }
+
+  reloadComponent(): void {
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

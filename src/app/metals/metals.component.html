@@ -23,7 +23,8 @@
         <h3 class="oneToOneExchange"> Unit: <br> {{metalsList.unit}} </h3>
         <div class="button">
           <div></div>
-          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')">Add To Fav</a>
+          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true' && !isFavourite(metalsList.baseCurrency, rate.symbol)" (click)="firebaseService.addToFav(metalsList.baseCurrency, rate.symbol, 'metal')" routerLink="/metals">Add to Fav</a>
+          <a class="removeFavourites" *ngIf="firebaseService.isLoggedIn === 'true'&& isFavourite(metalsList.baseCurrency, rate.symbol)" (click)="removeFromFav(metalsList.baseCurrency, rate.symbol)" routerLink="/metals">Remove From Fav</a>
         </div>
         <a (click)="showChart(rate.symbol, metalsList.baseCurrency)"><i id="{{rate.symbol}}" class="fas fa-arrow-down"></i></a>
       </div>

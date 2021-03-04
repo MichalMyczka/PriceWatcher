@@ -22,7 +22,8 @@
         <h3 class="oneToOneExchange"> Current Price: <br> {{rate.rate}} </h3>
         <div class="button">
           <div></div>
-          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')">Add To Fav</a>
+          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true' && !isFavourite(currencyList.base_currency_code, rate.base)" (click)="firebaseService.addToFav(currencyList.base_currency_code, rate.base, 'currencies')" routerLink="/currencies">Add to Fav</a>
+          <a class="removeFavourites" *ngIf="firebaseService.isLoggedIn === 'true' && isFavourite(currencyList.base_currency_code, rate.base)" (click)="removeFromFav(currencyList.base_currency_code, rate.base)" routerLink="/currencies">Remove From Fav</a>
         </div>
         <a (click)="showChart(rate.base, currencyList.base_currency_code)"><i id="{{rate.base}}" class="fas fa-arrow-down"></i></a>
       </div>

@@ -21,8 +21,12 @@ export class CryptocurrenciesComponent implements OnInit {
   public show = false;
   public chartData = '';
   public temp = '';
-  public favourites = JSON.parse(localStorage.getItem('favList'));
-  public showOrNot = true;
+
+  public userFav: any[];
+
+  // public favourites = JSON.parse(localStorage.getItem('favList'));
+  // public showOrNot = false;
+
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
@@ -30,8 +34,8 @@ export class CryptocurrenciesComponent implements OnInit {
               public router: Router) { }
 
   ngOnInit(): void {
+    this.getUserFav();
     this.getCryptoCurrencies();
-    console.log(this.favourites);
   }
 
   getCryptoCurrencies(): void{
@@ -42,34 +46,41 @@ export class CryptocurrenciesComponent implements OnInit {
       });
   }
 
+  async getUserFav(): Promise<any>{
+    const currUID = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/' + currUID + '/favourites/').once('value').then(
+      (snapshot) => {
+        this.userFav = snapshot.val();
+      })
+      .catch((error) => {
+        console.log('Fetching Error', error);
+      });
+  }
+
   getSearch($event: string): void {
     this.cryptoList = this.cryptoCurrencyList.rates.filter(rate => {
       return rate.symbol.toUpperCase().includes($event.toUpperCase());
     });
   }
 
-  favOrRemove(base, currency){
-    const favourites = Object.keys(this.favourites);
-    console.log(Object.keys(this.favourites));
-    for (let fav of favourites){
-      if (this.favourites[fav].api === 'cryptocurrencies'){
-        if (this.favourites[fav].base === base && this.favourites[fav].currency === currency){
-          console.log(this.favourites[fav].base);
-          console.log(this.favourites[fav].currency);
-          this.showOrNot = true;
-        }
-        else{
-          this.showOrNot = false;
-        }
+  isFavourite(base, currency): boolean{
+  const favourites = Object.keys(this.userFav);
+  for (const fav of favourites){
+    if (this.userFav[fav].api === 'cryptocurrencies'){
+      if (this.userFav[fav].base.toUpperCase() === base.toUpperCase()
+        && this.userFav[fav].currency.toUpperCase() === currency.toUpperCase()){
+        return true;
       }
     }
+  }
+  return false;
   }
 
   removeFromFav(base, rateSymbol): void{
     const currUID = firebase.auth().currentUser.uid;
-    const favourites = Object.keys(this.favourites);
+    const favourites = Object.keys(this.userFav);
     for (const fav of favourites) {
-      if (this.favourites[fav].base === base && this.favourites[fav].currency === rateSymbol){
+      if (this.userFav[fav].base === base && this.userFav[fav].currency === rateSymbol){
         firebase.database().ref('/users/' + currUID + '/favourites/' + fav).remove();
       }
     }

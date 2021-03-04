@@ -24,8 +24,8 @@
           <h3 class="oneToOneExchange"> Current Price: <br> {{inner.ratePrice}} </h3>
           <div class="button" id="button-6">
             <div id="spin"></div>
-            <a class="favourites" (load)="favOrRemove(inner.rateSymbol, crypto.symbol)" *ngIf="firebaseService.isLoggedIn === 'true' && !showOrNot" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')">Add to Fav</a>
-            <a class="favourites" (load)="favOrRemove(inner.rateSymbol, crypto.symbol)" *ngIf="firebaseService.isLoggedIn === 'true' && showOrNot" (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/cryptocurrencies">Remove From Fav</a>
+            <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true' && !isFavourite(inner.rateSymbol, crypto.symbol)" (click)="firebaseService.addToFav(inner.rateSymbol, crypto.symbol, 'cryptocurrencies')" routerLink="/cryptocurrencies">Add to Fav</a>
+            <a class="removeFavourites" *ngIf="firebaseService.isLoggedIn === 'true'&& isFavourite(inner.rateSymbol, crypto.symbol)" (click)="removeFromFav(inner.rateSymbol, crypto.symbol)" routerLink="/cryptocurrencies">Remove From Fav</a>
           </div>
           <a (click)="showChart(crypto.symbol.toUpperCase(), inner.rateSymbol.toUpperCase())"><i id="{{crypto.symbol.toUpperCase()}}" class="fas fa-arrow-down"></i></a>
         </div>

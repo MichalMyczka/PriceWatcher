@@ -4,6 +4,8 @@ import {Metals} from '../models/metals.model';
 import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
 import {MetalsRates} from '../models/metals-rates.model';
+import firebase from 'firebase';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-metals',
@@ -19,11 +21,25 @@ export class MetalsComponent implements OnInit {
   public show = false;
   public chartData = '';
   public temp = '';
+  public userFav: any[];
 
-  constructor(private metals: MetalsService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService) { }
+  constructor(private metals: MetalsService, public firebaseService: FirebaseService, public firebaseDB: FirebaseDBService,
+              public router: Router) { }
 
   ngOnInit(): void {
+    this.getUserFav();
     this.getMetals();
+  }
+
+  async getUserFav(): Promise<any>{
+    const currUID = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/' + currUID + '/favourites/').once('value').then(
+      (snapshot) => {
+        this.userFav = snapshot.val();
+      })
+      .catch((error) => {
+        console.log('Fetching Error', error);
+      });
   }
 
   getMetals(): void{
@@ -56,5 +72,36 @@ export class MetalsComponent implements OnInit {
       currency = 'XPD';
     }
     this.chartData = 'FX_IDC:' + currency + base;
+  }
+
+  isFavourite(base, currency): boolean{
+    const favourites = Object.keys(this.userFav);
+    for (const fav of favourites){
+      if (this.userFav[fav].api === 'metal'){
+        if (this.userFav[fav].base.toUpperCase() === base.toUpperCase()
+          && this.userFav[fav].currency.toUpperCase() === currency.toUpperCase()){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  removeFromFav(base, rateSymbol): void{
+    const currUID = firebase.auth().currentUser.uid;
+    const favourites = Object.keys(this.userFav);
+    for (const fav of favourites) {
+      if (this.userFav[fav].base === base && this.userFav[fav].currency === rateSymbol){
+        firebase.database().ref('/users/' + currUID + '/favourites/' + fav).remove();
+      }
+    }
+    this.reloadComponent();
+  }
+
+  reloadComponent(): void {
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

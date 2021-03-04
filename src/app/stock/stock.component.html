@@ -9,8 +9,8 @@
         <h3 class="weeklyChange">Percentage change: <br> {{stock.changesPercentage}}%</h3>
         <div class="button">
           <div></div>
-          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true'"
-             (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')">Add To Fav</a>
+          <a class="favourites" *ngIf="firebaseService.isLoggedIn === 'true' && !isFavourite('USD', stock.symbol)" (click)="firebaseService.addToFav('USD', stock.symbol, 'stock')" routerLink="/stock">Add to Fav</a>
+          <a class="removeFavourites" *ngIf="firebaseService.isLoggedIn === 'true'&& isFavourite('USD', stock.symbol)" (click)="removeFromFav('USD', stock.symbol)" routerLink="/stock">Remove From Fav</a>
         </div>
         <a (click)="showChart(stock.symbol, 'USD')"><i id="{{stock.symbol}}" class="fas fa-arrow-down"></i></a>
       </div>
