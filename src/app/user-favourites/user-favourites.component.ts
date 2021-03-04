@@ -56,6 +56,8 @@ export class UserFavouritesComponent implements OnInit {
     return firebase.database().ref('/users/' + currUID + '/favourites/').once('value').then(
       (snapshot) => {
         this.userFav = snapshot.val();
+        localStorage.setItem('favList', JSON.stringify(this.userFav));
+        console.log(JSON.parse(localStorage.getItem('favList')));
         this.loadData();
       })
       .catch((error) => {

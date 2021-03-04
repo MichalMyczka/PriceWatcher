@@ -5,6 +5,8 @@ import {FirebaseService} from '../services/firebase.service';
 import {FirebaseDBService} from '../services/firebase-db.service';
 import {CryptocurrencyRates} from '../models/cryptocurrency-rates.model';
 import {CryptocurrencyBase} from '../models/cryptocurrencybase.model';
+import firebase from 'firebase';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cryptocurrencies',
@@ -19,13 +21,17 @@ export class CryptocurrenciesComponent implements OnInit {
   public show = false;
   public chartData = '';
   public temp = '';
+  public favourites = JSON.parse(localStorage.getItem('favList'));
+  public showOrNot = true;
 
   constructor(private cryptocurrency: CryptocurrenciesService,
               public firebaseService: FirebaseService,
-              public firebaseDB: FirebaseDBService) { }
+              public firebaseDB: FirebaseDBService,
+              public router: Router) { }
 
   ngOnInit(): void {
     this.getCryptoCurrencies();
+    console.log(this.favourites);
   }
 
   getCryptoCurrencies(): void{
@@ -40,6 +46,41 @@ export class CryptocurrenciesComponent implements OnInit {
     this.cryptoList = this.cryptoCurrencyList.rates.filter(rate => {
       return rate.symbol.toUpperCase().includes($event.toUpperCase());
     });
+  }
+
+  favOrRemove(base, currency){
+    const favourites = Object.keys(this.favourites);
+    console.log(Object.keys(this.favourites));
+    for (let fav of favourites){
+      if (this.favourites[fav].api === 'cryptocurrencies'){
+        if (this.favourites[fav].base === base && this.favourites[fav].currency === currency){
+          console.log(this.favourites[fav].base);
+          console.log(this.favourites[fav].currency);
+          this.showOrNot = true;
+        }
+        else{
+          this.showOrNot = false;
+        }
+      }
+    }
+  }
+
+  removeFromFav(base, rateSymbol): void{
+    const currUID = firebase.auth().currentUser.uid;
+    const favourites = Object.keys(this.favourites);
+    for (const fav of favourites) {
+      if (this.favourites[fav].base === base && this.favourites[fav].currency === rateSymbol){
+        firebase.database().ref('/users/' + currUID + '/favourites/' + fav).remove();
+      }
+    }
+    this.reloadComponent();
+  }
+
+  reloadComponent(): void {
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
   showChart(currency: string, base: string): void {
