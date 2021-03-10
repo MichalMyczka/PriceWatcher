@@ -15,6 +15,7 @@ export class CryptocurrenciesService {
   constructor(private http: HttpClient) { }
 
   getCrypto(cryptoCurrencyBase = 'USD', cryptoCurrencyNames = environment.cryptocurrenciesNameUrl): Observable<Cryptocurrency>{
+    // tslint:disable-next-line:max-line-length
     return this.http.get<Cryptocurrency>(`${environment.cryptocurrencyApiUrl}${cryptoCurrencyNames}&vs_currencies=${cryptoCurrencyBase}`).pipe(
       map(result => {
         const crypto: Cryptocurrency = {
